@@ -1,0 +1,102 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_vendoroas",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_vendoroa",
+    "MaxGetRowsCount": 700,
+    "Name": "VOA Items",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cr4e3_cr4e3_orderrequestitem_PurchaseItem_cr4e3": "Order Request Items",
+      "cr4e3_description": "Description",
+      "cr4e3_Invoicing": "Invoicing",
+      "cr4e3_materialcode": "Material Code",
+      "cr4e3_name": "Item ID",
+      "cr4e3_netprice": "Net Price",
+      "cr4e3_netprice_base": "Net Price (Base)",
+      "cr4e3_posno": "POS No.",
+      "cr4e3_vendoroa_AsyncOperations": "System Jobs",
+      "cr4e3_vendoroa_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_vendoroa_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_vendoroa_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_vendoroa_ProcessSession": "Process Sessions",
+      "cr4e3_vendoroa_SyncErrors": "Sync Errors",
+      "cr4e3_vendoroaid": "Vendor OAI",
+      "cr4e3_VOA": "VOA",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "exchangerate": "Exchange Rate",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "transactioncurrencyid": "Currency",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "VOA Items",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "VOA Items (Views)",
+    "Name": "_cr4e3_vendoroa_views",
+    "RelatedEntityName": "VOA Items",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0eb802b5-f594-4c4c-9ff9-211b0097ab9b": "Vendor OA Advanced Find View",
+      "22cc5828-d98c-4ca9-a9cb-f0d0e24ac6ae": "Inactive Vendor OA's",
+      "4150f560-56f3-4f7a-a46c-45725aedbbee": "Active Vendor OA's",
+      "87102a76-7a6e-4fa0-b5ff-23fb5201c5a0": "Vendor OA Associated View",
+      "a3e4daaf-f707-48c2-a533-e33502e009c2": "Vendor OA Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (VOA Items)",
+    "Name": "cr4e3_vendoroa_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "VOA Items"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "VOA Items",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (VOA Items)",
+    "Name": "cr4e3_vendoroa_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "VOA Items"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "VOA Items",
+    "Type": "OptionSetInfo"
+  }
+]

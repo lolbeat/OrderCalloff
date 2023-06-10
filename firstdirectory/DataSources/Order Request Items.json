@@ -1,0 +1,99 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_orderrequestitems",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_orderrequestitem",
+    "MaxGetRowsCount": 700,
+    "Name": "Order Request Items",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cr4e3_itemdescription": "Item Description",
+      "cr4e3_itemid": "PorItem_ID",
+      "cr4e3_orderrequestitem_AsyncOperations": "System Jobs",
+      "cr4e3_orderrequestitem_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_orderrequestitem_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_orderrequestitem_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_orderrequestitem_ProcessSession": "Process Sessions",
+      "cr4e3_orderrequestitem_SyncErrors": "Sync Errors",
+      "cr4e3_orderrequestitemid": "Order Request Item",
+      "cr4e3_PORID": "POR ID",
+      "cr4e3_pos": "POS",
+      "cr4e3_price": "Price",
+      "cr4e3_PurchaseItem": "Purchase Item",
+      "cr4e3_QCItemID": "QC Item ID",
+      "cr4e3_quantity": "Quantity",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Order Request Items",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Order Request Items (Views)",
+    "Name": "_cr4e3_orderrequestitem_views",
+    "RelatedEntityName": "Order Request Items",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "51b30d45-7c48-454c-9c66-821f381d4181": "Order Request Item Lookup View",
+      "b4d31049-fe91-4cbb-80ab-115f0b406ee5": "Order Request Item Associated View",
+      "cd062c38-6385-4df9-8914-b1a016b6fb5b": "Active Order Request Items",
+      "cfd68d24-a91f-4c3d-8ff0-f623bfdf0b69": "Order Request Item Advanced Find View",
+      "e0b14464-9221-403b-b227-b3bab1c8d73e": "Inactive Order Request Items"
+    }
+  },
+  {
+    "DisplayName": "Status (Order Request Items)",
+    "Name": "cr4e3_orderrequestitem_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Order Request Items"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Order Request Items",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Order Request Items)",
+    "Name": "cr4e3_orderrequestitem_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Order Request Items"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Order Request Items",
+    "Type": "OptionSetInfo"
+  }
+]

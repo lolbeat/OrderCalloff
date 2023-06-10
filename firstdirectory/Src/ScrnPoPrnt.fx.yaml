@@ -1,0 +1,714 @@
+"ScrnPoPrnt As screen.'printableLayout_A4Portrait_ver1.0'":
+    Height: =1123
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: |-
+        =// used in POR items filter to total the items qty and price
+        Set(varPorId, Gallery_POR.Selected.'Purchase Order Request');
+        UpdateContext({currentItem: LookUp('Purchase Order Requests', 'Purchase Order Request' = GUID(varPorId))})
+    Width: =794
+
+    ImgNcsb As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Height: =111
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =NCSB_Header
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        RadiusBottomLeft: =3
+        RadiusBottomRight: =3
+        RadiusTopLeft: =3
+        RadiusTopRight: =3
+        Width: =794
+        Y: =21
+        ZIndex: =1
+
+    LblTtl As Label:
+        Alignment: =Align.Center
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =12
+        FontWeight: =FontWeight.Bold
+        Height: =29
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="PURCHASE / EXPENDITURE REQUISITION FORM (PRF)"
+        Width: =722
+        X: =28
+        Y: =132
+        ZIndex: =2
+
+    LblDept As Label:
+        DisplayMode: =DisplayMode.Edit
+        FontWeight: =FontWeight.Lighter
+        Height: =32
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="Department"
+        Width: =124
+        X: =28
+        Y: =172
+        ZIndex: =3
+
+    Container_PorDetails_1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =ScrnPoPrnt.Height - Container_PorDetails_1.Y
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        Y: =300
+        ZIndex: =4
+
+        Container_PorItms_2 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =Parent.Height * 0.67
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            Width: =Parent.Width
+            Y: |-
+                =//btnHeader_4.Y+btnHeader_4.Height
+                Parent.Height * 0.33
+            ZIndex: =1
+
+            ContainerPorItms_3 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                Height: =70
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =0
+                LayoutMinWidth: =794
+                LayoutMode: =LayoutMode.Auto
+                Visible: |
+                    =true
+                Width: =Parent.Width
+                ZIndex: =1
+
+                CntnrPorItmHeaders_3 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(224, 224, 237, 1)
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =550
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutOverflowX: =LayoutOverflow.Scroll
+                    PaddingLeft: =15
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    LblHdrPorItmPos_3 As Label:
+                        AlignInContainer: =AlignInContainer.Center
+                        Alignment: =Align.Left
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =60
+                        Overflow: ='Label.Overflow'.Hidden
+                        Text: ="Pos."
+                        Width: =50
+                        Wrap: =true
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    LblHdrQcMtrlDscprn_3 As Label:
+                        Alignment: =Align.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Overflow: ='Label.Overflow'.Hidden
+                        Text: ="Description / "
+                        VerticalAlignment: =VerticalAlign.Middle
+                        Width: =90
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                    LblHdrVoaPrchsItm_3 As Label:
+                        Alignment: =Align.Left
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =10
+                        FontWeight: =FontWeight.Bold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Overflow: ='Label.Overflow'.Hidden
+                        Text: ="Purchase Item"
+                        VerticalAlignment: =VerticalAlign.Middle
+                        Width: =380
+                        X: =0
+                        Y: =0
+                        ZIndex: =3
+
+                    LblHdrNtPrc_3 As Label:
+                        Alignment: =Align.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Overflow: ='Label.Overflow'.Hidden
+                        Text: ="Unit Price"
+                        Width: =80
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
+                    LblHdrQty_5 As Label:
+                        Alignment: =Align.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =10
+                        FontWeight: =FontWeight.Bold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Overflow: ='Label.Overflow'.Hidden
+                        Text: ="Qty.  "
+                        Width: =60
+                        X: =0
+                        Y: =0
+                        ZIndex: =5
+
+                    LblHdrTtlPrc_5 As Label:
+                        Alignment: =Align.Center
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =10
+                        FontWeight: =FontWeight.Bold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Overflow: ='Label.Overflow'.Hidden
+                        Text: ="Subtotal"
+                        Width: =100
+                        X: =0
+                        Y: =0
+                        ZIndex: =6
+
+                Gallery_PorItems_4 As gallery.BrowseLayout_Vertical_TwoTextVariant_pcfCore:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    DelayItemLoading: =true
+                    Fill: =RGBA(244, 244, 243, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Items: |-
+                        =//Filter items for this POR where a vendor product (purchase item) has been selected
+                        Sort(
+                            If(
+                                EditForm_PORequest.Mode = FormMode.New,
+                                colPorItems,
+                                Filter(
+                                    'Order Request Items',
+                        //          'POR ID'.'POR Description' = DcvDscrptn.Value And Not(IsBlankOrError('Purchase Item'))
+                                    'POR ID'.'Purchase Order Request' = CurrentItem.'Purchase Order Request'
+                                )
+                            ),
+                            'QC Item ID'.POS
+                        )
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =550
+                    LoadingSpinner: =LoadingSpinner.Data
+                    ShowScrollbar: =false
+                    TemplatePadding: =0
+                    TemplateSize: =25
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                    TotalPrice_3 As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Bold
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.Price
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrTtlPrc_5.Width
+                        X: =LblHdrTtlPrc_5.X
+                        Y: =0
+                        ZIndex: =1
+
+                    Qty_4 As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Bold
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.Quantity
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrQty_5.Width
+                        X: =LblHdrQty_5.X
+                        Y: =0
+                        ZIndex: =2
+
+                    PrchsItmDscptn_3 As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Bold
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.'Purchase Item'.Description
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrVoaPrchsItm_3.Width
+                        X: =LblHdrVoaPrchsItm_3.X
+                        Y: =0
+                        ZIndex: =3
+
+                    Pos_PrchsItm As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Bold
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.POS
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrPorItmPos_3.Width
+                        X: =LblHdrPorItmPos_3.X
+                        Y: =0
+                        ZIndex: =4
+
+                    UntPrice_4 As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Lighter
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.'Purchase Item'.'Net Price'
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrNtPrc_3.Width
+                        X: =LblHdrNtPrc_3.X
+                        Y: =0
+                        ZIndex: =5
+
+                    QcMtrlDscptn_4 As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Lighter
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.'QC Item ID'.'Material description'
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =362
+                        X: =LblHdrQcMtrlDscprn_3.X
+                        Y: =0
+                        ZIndex: =6
+
+                    Pos_QcItm As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Lighter
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.'QC Item ID'.POS
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrPorItmPos_3.Width
+                        X: =LblHdrPorItmPos_3.X
+                        Y: =0
+                        ZIndex: =7
+
+                    Rectangle1_4 As rectangle:
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        DisabledFill: =RGBA(0,0,0,0)
+                        Fill: =RGBA(0,0,0,0)
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        Height: =25
+                        HoverFill: =RGBA(0,0,0,0)
+                        OnSelect: =Select(Parent)
+                        PressedFill: =RGBA(0,0,0,0)
+                        TabIndex: =0
+                        Width: =Parent.Width
+                        ZIndex: =8
+
+                CntnrPorTotals_2 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(224, 224, 237, 1)
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =200
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutWrap: =true
+                    PaddingLeft: =15
+                    Width: =Parent.Width
+                    ZIndex: =3
+
+                    LblTtlsSpcr_2 As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =10
+                        FontWeight: =FontWeight.Bold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Text: ="Grand Total incl. SST (RM)"
+                        Width: =LblHdrPorItmPos_3.Width + LblHdrQcMtrlDscprn_3.Width + LblHdrVoaPrchsItm_3.Width + LblHdrNtPrc_3.Width -50
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    LblHdrTtlPrc_6 As Label:
+                        Alignment: =Align.Left
+                        AutoHeight: =false
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =10
+                        FontWeight: =FontWeight.Bold
+                        Height: =35
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Overflow: ='Label.Overflow'.Hidden
+                        Text: |-
+                            =Text(Sum(ShowColumns(Filter('Order Request Items', cr4e3_PORID.'Purchase Order Request' = GUID(varPorId)),"cr4e3_price"), Value(cr4e3_price)),"RM #,##0.00")
+                        Width: =LblHdrTtlPrc_5.Width + 30
+                        X: =0
+                        Y: =0
+                        ZIndex: =3
+
+            ContainerLwr As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =6
+
+                LabelJstfcn As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =8
+                    FontWeight: =FontWeight.Semibold
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    Text: ="JUSTIFICATION FOR THE PURCHASE"
+                    Width: =Parent.Width
+                    Wrap: =false
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                "TxtBxJstfctn As 'Text box'":
+                    ColorBackground: =RGBA(244, 244, 243, 1)
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =12
+                    Height: =64
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Underlined: =false
+                    Value: =CurrentItem.Remarks
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+                LblDgSgn As Label:
+                    Alignment: =Align.Left
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.'Segoe UI'
+                    FontSize: =12
+                    FontWeight: =FontWeight.Semibold
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    Text: |-
+                        ="Digitally Signed :"
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =0
+                    ZIndex: =3
+
+                CntnrSgntrs As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =5
+                    PaddingLeft: =5
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    Width: =Parent.Width
+                    ZIndex: =5
+
+                    Gallery2 As gallery.BrowseLayout_Vertical_ThreeTextVariant_pcfCore:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(68, 70, 116, 1)
+                        BorderThickness: =2
+                        DelayItemLoading: =true
+                        Fill: =RGBA(244, 244, 243, 1)
+                        FillPortions: =0.7
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        FocusedBorderThickness: =2
+                        Items: |-
+                            =//Filter(Approvals, POR.'POR Description' = DcvDscrptn.Value)
+                            Filter(Approvals, POR.'Purchase Order Request' = CurrentItem.'Purchase Order Request')
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =270
+                        LayoutMinWidth: =420
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplatePadding: =2
+                        TemplateSize: =40
+                        Width: =
+                        ZIndex: =1
+
+                        Rectangle4 As rectangle:
+                            BorderColor: =RGBA(243, 242, 241, 1)
+                            DisabledFill: =RGBA(0,0,0,0)
+                            Fill: =RGBA(0,0,0,0)
+                            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                            Height: =36
+                            HoverFill: =RGBA(0,0,0,0)
+                            OnSelect: =Select(Parent)
+                            PressedFill: =RGBA(0,0,0,0)
+                            TabIndex: =0
+                            Width: =Parent.TemplateWidth
+                            ZIndex: =1
+
+                        lblApprvr As Label:
+                            Alignment: =Align.Left
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =10.5
+                            FontWeight: =FontWeight.Semibold
+                            Height: =25
+                            OnSelect: =Select(Parent)
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            TabIndex: =-1
+                            Text: =ThisItem.ApproverName
+                            VerticalAlignment: =VerticalAlign.Top
+                            Width: =213
+                            X: =0
+                            Y: =11
+                            ZIndex: =2
+
+                        lblResponse As Label:
+                            Alignment: =Align.Left
+                            DisplayMode: =DisplayMode.Edit
+                            Font: =Font.'Segoe UI'
+                            FontSize: =12
+                            FontWeight: =FontWeight.Semibold
+                            Height: =31
+                            OnSelect: =Select(Parent)
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            TabIndex: =-1
+                            Text: =ThisItem.Result
+                            VerticalAlignment: =VerticalAlign.Top
+                            Width: =112
+                            X: =306
+                            Y: =5
+                            ZIndex: =3
+
+                        lblWrkflwStp As Label:
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            FontWeight: =FontWeight.Lighter
+                            Height: =20
+                            OnSelect: =Select(Parent)
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            TabIndex: =-1
+                            Text: =ThisItem.ApprovalStep
+                            VerticalAlignment: =VerticalAlign.Top
+                            Width: =189
+                            X: =0
+                            Y: =0
+                            ZIndex: =4
+
+                    Container6 As groupContainer.verticalAutoLayoutContainer:
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =10
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =10
+                        ZIndex: =2
+
+                        LblSgntr2 As Label:
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Text: ="Verified by Group Procurement"
+                            Width: =Parent.Width - 20
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        Rectangle3 As rectangle:
+                            BorderColor: =RGBA(98, 100, 167, 1)
+                            BorderStyle: =BorderStyle.Dotted
+                            BorderThickness: =2
+                            DisabledFill: =RGBA(200, 198, 196, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FillPortions: =1
+                            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                            HoverFill: =RGBA(98, 100, 167, 1)
+                            PressedFill: =RGBA(98, 100, 167, 1)
+                            Width: =Parent.Width -20
+                            ZIndex: =2
+
+                        LblSgntr1 As Label:
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Text: ="Approved / Not Approved By HOC / HOC & HoGF / GROUP CEO"
+                            Width: =Parent.Width - 20
+                            X: =0
+                            Y: =0
+                            ZIndex: =3
+
+                        Rectangle3_1 As rectangle:
+                            BorderColor: =RGBA(98, 100, 167, 1)
+                            BorderStyle: =BorderStyle.Dotted
+                            BorderThickness: =2
+                            DisabledFill: =RGBA(200, 198, 196, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FillPortions: =1
+                            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                            HoverFill: =RGBA(98, 100, 167, 1)
+                            PressedFill: =RGBA(98, 100, 167, 1)
+                            Width: =Parent.Width -20
+                            ZIndex: =4
+
+    BackButton As label:
+        Align: =Align.Center
+        Color: =RGBA(0, 134, 208, 1)
+        DisabledColor: =RGBA(200, 198, 196, 1)
+        Font: =Font.'Segoe UI'
+        Height: =32
+        OnSelect: =Back();
+        Size: =13
+        TabIndex: =0
+        Text: ="Back"
+        Visible: =Not(Parent.Printing)
+        Width: =96
+        ZIndex: =5
+
+    PrintButton1 As label:
+        Align: =Align.Center
+        Color: =RGBA(0, 134, 208, 1)
+        DisabledColor: =RGBA(200, 198, 196, 1)
+        Font: =Font.'Segoe UI'
+        Height: =32
+        OnSelect: =Print()
+        Size: =13
+        TabIndex: =0
+        Text: ="Print"
+        Visible: =Not(Parent.Printing)
+        Width: =96
+        X: =698
+        ZIndex: =6
+
+    Label3 As Label:
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =12
+        FontWeight: =FontWeight.Lighter
+        Height: =32
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: |-
+            ="PRF Description:"
+        Width: =124
+        X: =28
+        Y: =268
+        ZIndex: =7
+
+    "TextBox1 As 'Text box'":
+        ColorBackground: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =12
+        FontWeight: =FontWeight.Normal
+        Height: =32
+        PCFTeamsTheme: =TeamsTheme.Default
+        Value: =currentItem.'POR Description'
+        Width: =598
+        X: =172
+        Y: =268
+        ZIndex: =8
+
+    Label14 As Label:
+        DisplayMode: =DisplayMode.Edit
+        FontSize: =12
+        FontWeight: =FontWeight.Normal
+        Height: =32
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="Naza Communications / Operations"
+        Width: =320
+        X: =172
+        Y: =172
+        ZIndex: =10
+
+    LblDept_1 As Label:
+        DisplayMode: =DisplayMode.Edit
+        FontWeight: =FontWeight.Lighter
+        Height: =32
+        PCFTeamsTheme: =TeamsTheme.Default
+        Text: ="Type of Expenditure"
+        Width: =124
+        X: =28
+        Y: =204
+        ZIndex: =11
+
+    ListBox1 As listbox:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        Color: =RGBA(37, 36, 35, 1)
+        DisabledBorderColor: =RGBA(200, 198, 196, 1)
+        DisabledColor: =RGBA(200, 198, 196, 1)
+        DisabledFill: =RGBA(243, 242, 241, 1)
+        DisabledSelectionColor: =RGBA(200, 198, 196, 1)
+        DisabledSelectionFill: =RGBA(220, 220, 220, 1)
+        DisplayMode: =DisplayMode.View
+        FocusedBorderThickness: =2
+        Font: =Font.'Segoe UI'
+        Height: =59
+        HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+        HoverColor: =RGBA(37, 36, 35, 1)
+        HoverFill: =RGBA(243, 242, 241, 1)
+        ItemPaddingLeft: =0
+        Items: =CurrentItem.'Expense Type'
+        LineHeight: =1
+        PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(237, 235, 233, 1)
+        SelectionColor: =RGBA(37, 36, 35, 1)
+        SelectionFill: =RGBA(255, 255, 255, 1)
+        Size: =12
+        X: =172
+        Y: =204
+        ZIndex: =12
+

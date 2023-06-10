@@ -1,0 +1,120 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_wbselements",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_wbselement",
+    "MaxGetRowsCount": 700,
+    "Name": "WBS Elements",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cr4e3_cr4e3_purchaseorderrequest_OperativeSiteW": "Purchase Order Requests (cr4e3_cr4e3_purchaseorderrequest_OperativeSiteW)",
+      "cr4e3_cr4e3_purchaseorderrequest_WBSTemplate_cr": "Purchase Order Requests (cr4e3_cr4e3_purchaseorderrequest_WBSTemplate_cr)",
+      "cr4e3_cr4e3_purchaseorderrequest_ZoneLevelWBS_c": "Purchase Order Requests (cr4e3_cr4e3_purchaseorderrequest_ZoneLevelWBS_c)",
+      "cr4e3_description": "Description",
+      "cr4e3_elementno": "Element No.",
+      "cr4e3_modelsite": "Model Site",
+      "cr4e3_Project": "Project",
+      "cr4e3_template": "Template",
+      "cr4e3_wbselement_AsyncOperations": "System Jobs",
+      "cr4e3_wbselement_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_wbselement_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_wbselement_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_wbselement_ProcessSession": "Process Sessions",
+      "cr4e3_wbselement_SyncErrors": "Sync Errors",
+      "cr4e3_wbselementid": "WBS Element",
+      "cr4e3_wbslevel": "WBS level",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "WBS Elements",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "WBS Elements (Views)",
+    "Name": "_cr4e3_wbselement_views",
+    "RelatedEntityName": "WBS Elements",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "6973d136-6c43-4b7e-b1bd-93e2f619c4bd": "WBS Element Associated View",
+      "b9f970f6-efce-4a95-af94-c3cd310d4e39": "Inactive WBS Elements",
+      "c94eb4d9-0e70-4be5-826c-cd8960de3f95": "WBS Element Advanced Find View",
+      "dd96b68b-32c1-420c-8b5f-3fe60a53062f": "Active WBS Elements",
+      "e0e08cc8-40d7-4e50-bc41-142cf0c294a5": "WBS Element Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Template (WBS Elements)",
+    "Name": "cr4e3_wbselement_cr4e3_template",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr4e3_template",
+        "OptionSetReferenceEntityName": "WBS Elements"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cr4e3_template",
+    "RelatedEntityName": "WBS Elements",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (WBS Elements)",
+    "Name": "cr4e3_wbselement_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "WBS Elements"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "WBS Elements",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (WBS Elements)",
+    "Name": "cr4e3_wbselement_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "WBS Elements"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "WBS Elements",
+    "Type": "OptionSetInfo"
+  }
+]

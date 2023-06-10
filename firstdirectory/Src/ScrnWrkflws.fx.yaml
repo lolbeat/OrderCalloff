@@ -1,0 +1,317 @@
+"ScrnWrkflws As screen.'tabletAutoLayout_Sidebar_ver1.0'":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: |-
+        =UpdateContext({ varStyle: {topBarHeight:52, topBarTitleSize:12, topBarTitleLeftPadding:12, topBarIconRightPadding:12, topBarTitleLeftPaddingWithButton:8, iconSize:16, largeIconSize:35, iconPadding:6, spaceBetweenIcons:4, deletePageSideMargins:200, galleryBarHeight:70, searchBarHeight:32, deleteTextHeight:120, deleteConfirmButtonHeight:40, iconButtonFill:RGBA(0,0,0,0.2), iconButtonSmallWidth:30, iconFill: ColorValue("#6264A7"), dividerFill: ColorValue("#EAE9E8"), formLabelFontSize: 10.5, focusBorderColor: ColorValue("#000000"), focusBorderThickness: 2, borderStyle: BorderStyle.Dashed }});
+
+    ScreenContainer2 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        SidebarContainer1 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =3
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Label13 As Label:
+                Alignment: =Align.Center
+                Color: =RGBA(68, 70, 116, 1)
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =12
+                FontWeight: =FontWeight.Bold
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Text: ="Approval Flows"
+                TextRole: ='Label.TextRole'.Default
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            Gallery_Workflows As gallery.BrowseLayout_Vertical_TwoTextVariant_pcfCore:
+                BorderColor: =RGBA(68, 70, 116, 1)
+                BorderThickness: =1
+                DelayItemLoading: =true
+                FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                FocusedBorderThickness: =2
+                Items: =Workflows
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateFill: |-
+                    =If(
+                       ThisItem.IsSelected,
+                       Color.DarkGray,Color.White
+                    )
+                TemplatePadding: =0
+                TemplateSize: =48
+                ZIndex: =2
+
+                Rectangle1 As rectangle:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledFill: =RGBA(0,0,0,0)
+                    Fill: =RGBA(0,0,0,0)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    Height: =Parent.TemplateHeight
+                    HoverFill: =RGBA(0,0,0,0)
+                    OnSelect: =Select(Parent)
+                    PressedFill: =RGBA(0,0,0,0)
+                    TabIndex: =0
+                    Width: =Parent.TemplateWidth
+                    ZIndex: =1
+
+                Title1 As Label:
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =10.5
+                    FontWeight: =FontWeight.Semibold
+                    Height: =24
+                    OnSelect: =Select(Parent)
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    TabIndex: =-1
+                    Text: =ThisItem.Name
+                    VerticalAlignment: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth - 24
+                    X: =12
+                    Y: =((Parent.TemplateHeight - 36) / 2) - 4
+                    ZIndex: =2
+
+                Subtitle1 As Label:
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    FontWeight: =FontWeight.Normal
+                    Height: =24
+                    OnSelect: =Select(Parent)
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    TabIndex: =-1
+                    Text: =ThisItem.Description
+                    VerticalAlignment: =VerticalAlign.Top
+                    Width: =Title1.Width
+                    X: =Title1.X
+                    Y: =Title1.Y + Title1.Height - 6
+                    ZIndex: =3
+
+        RightSideContainer1 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =7
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            HeaderContainer2 As groupContainer.horizontalAutoLayoutContainer:
+                BorderColor: =RGBA(68, 70, 116, 1)
+                BorderThickness: =2
+                Fill: =RGBA(224, 224, 237, 1)
+                FillPortions: =0
+                Height: =75
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =4
+
+                IconButton_Home1_2 As icon.Home:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(98, 100, 167, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Height: =varStyle.largeIconSize
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(ScrnHome)
+                    PaddingBottom: =varStyle.iconPadding
+                    PaddingLeft: =varStyle.iconPadding
+                    PaddingRight: =varStyle.iconPadding
+                    PaddingTop: =varStyle.iconPadding
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Visible: =ScrnPrchsOrdrRqst.Size > ScreenSize.Medium
+                    Width: =varStyle.largeIconSize
+                    X: =10
+                    Y: =(Parent.Height -  Self.Height) / 2
+                    ZIndex: =1
+
+                Label12 As Label:
+                    Alignment: =Align.Center
+                    Color: =RGBA(68, 70, 116, 1)
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =15
+                    FontWeight: =FontWeight.Bold
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    Text: ="Workflow Steps"
+                    Width: =Parent.Width-varStyle.largeIconSize
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+            MainSectionContainer2 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =5
+
+                ContainerHdrs As groupContainer.horizontalAutoLayoutContainer:
+                    BorderColor: =RGBA(68, 70, 116, 1)
+                    BorderThickness: =2
+                    FillPortions: =0
+                    Height: =50
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =1
+
+                    LabelHdr_ApprovalOrder As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =0.5
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =100
+                        Text: ="Approval Order"
+                        Width: =320
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    LabelHdr_StepName As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =100
+                        Text: ="Step Name"
+                        Width: =250
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                    LabelHdr_WrkflwApprvlGrp As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =100
+                        Text: ="Approval Group"
+                        Width: =320
+                        X: =0
+                        Y: =0
+                        ZIndex: =3
+
+                    LabelHdr_Apprvr As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =100
+                        Text: ="Approver"
+                        Width: =320
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
+                Gallery3 As gallery.BrowseLayout_Vertical_TwoTextVariant_pcfCore:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderColor: =RGBA(68, 70, 116, 1)
+                    BorderThickness: =1
+                    DelayItemLoading: =true
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Items: =Sort(Filter('Workflow Steps', Workflow.Workflow =  Gallery_Workflows.Selected.Workflow), 'Approval Order', SortOrder.Ascending)
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =287
+                    LayoutMinWidth: =320
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =48
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                    Rectangle9 As rectangle:
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        DisabledFill: =RGBA(0,0,0,0)
+                        Fill: =RGBA(0,0,0,0)
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        Height: =48
+                        HoverFill: =RGBA(0,0,0,0)
+                        OnSelect: =Select(Parent)
+                        PressedFill: =RGBA(0,0,0,0)
+                        TabIndex: =0
+                        Width: =640
+                        ZIndex: =1
+
+                    Title8 As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =28
+                        OnSelect: =Select(Parent)
+                        Overflow: ='Label.Overflow'.Hidden
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.Step
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =223
+                        X: =LabelHdr_StepName.X
+                        Y: =0
+                        ZIndex: =2
+
+                    Subtitle8 As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =12
+                        FontWeight: =FontWeight.Normal
+                        Height: =34
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.'Approval Order'
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =56
+                        X: =LabelHdr_ApprovalOrder.X
+                        Y: =0
+                        ZIndex: =3
+
+                    Label10 As Label:
+                        AutoHeight: =false
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =12
+                        Height: =28
+                        OnSelect: =Select(Parent)
+                        Overflow: ='Label.Overflow'.Hidden
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        Text: =ThisItem.'Workflow Approval Group'
+                        Width: =162
+                        Wrap: =true
+                        X: =LabelHdr_WrkflwApprvlGrp.X
+                        Y: =0
+                        ZIndex: =4
+
+                    LabelVal_Apprvr As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =12
+                        Height: =32
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        Text: =ThisItem.Approver.'Full Name'
+                        Width: =320
+                        X: =LabelHdr_Apprvr.X
+                        Y: =0
+                        ZIndex: =5
+

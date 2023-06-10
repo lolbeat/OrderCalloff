@@ -1,0 +1,101 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_vendorses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_vendors",
+    "MaxGetRowsCount": 700,
+    "Name": "Vendors",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr4e3_address": "Address",
+      "cr4e3_contactinfo": "Contact Info",
+      "cr4e3_cr4e3_purchaseorderrequest_Vendor_cr4e3_v": "Purchase Order Requests",
+      "cr4e3_cr4e3_vendoragreement_Vendor_cr4e3_vendor": "Vendor Agreements",
+      "cr4e3_email": "Email",
+      "cr4e3_mobile": "Mobile",
+      "cr4e3_name": "Name",
+      "cr4e3_vendors_AsyncOperations": "System Jobs",
+      "cr4e3_vendors_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_vendors_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_vendors_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_vendors_ProcessSession": "Process Sessions",
+      "cr4e3_vendors_SyncErrors": "Sync Errors",
+      "cr4e3_vendorsid": "Vendors",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Vendors",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Vendors (Views)",
+    "Name": "_cr4e3_vendors_views",
+    "RelatedEntityName": "Vendors",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "101794fa-3078-453f-9037-ef1234a0e88d": "Vendors Associated View",
+      "5ad2bd19-c83a-4a7e-8275-cc11e3f23cd1": "Active Vendors",
+      "b16c8c61-9288-44f2-8c22-cc5a0c0a2f06": "Vendors Advanced Find View",
+      "b87a1a35-ccc8-4837-bbbc-87e55345138c": "Inactive Vendors",
+      "c3646305-b050-4abe-b66b-99714b5ed816": "Vendors Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Vendors)",
+    "Name": "cr4e3_vendors_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Vendors"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Vendors",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Vendors)",
+    "Name": "cr4e3_vendors_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Vendors"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Vendors",
+    "Type": "OptionSetInfo"
+  }
+]

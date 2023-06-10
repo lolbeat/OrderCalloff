@@ -1,0 +1,57 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =//if a por id has been passed as parameter during startup, then navigate to that POR, otherwise go to home screen
+        //changes 04/04/23 for the porID to be passed as 'subEntityId' param in a link for the TEAMS version of the app
+        //Set(
+        //    varPorId,
+        //    Param("PorId")
+        //);
+        Set(
+            varPorId,
+            Param("subEntityId")
+        );
+        Set(
+            varItem,
+            LookUp(
+                'Purchase Order Requests',
+                'Purchase Order Request' = GUID(varPorId)
+            )
+        );
+        If(
+            IsBlank(varPorId),
+            Navigate(ScrnHome),
+            Navigate(ScrnPrchsOrdrRqst)
+        );
+        Set(
+            varSpltLw,
+            0.17
+        );
+        Set(
+            varSpltHgh,
+            0.45
+        );
+        Set(
+            currentView,
+            'Purchase Order Requests (Views)'.'Purchase Orders (non-template)'
+        );
+        Set(
+            VaView,
+            'Vendor Agreements (Views)'.'Vendor Outline Agreement'
+        )
+    StartScreen: =
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
+    Teams As hostControl.TeamsHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

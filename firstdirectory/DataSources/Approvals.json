@@ -1,0 +1,101 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_approvals",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_approval",
+    "MaxGetRowsCount": 700,
+    "Name": "Approvals",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr4e3_approval_AsyncOperations": "System Jobs",
+      "cr4e3_approval_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_approval_DuplicateBaseRecord": "Duplicate Records (cr4e3_approval_DuplicateBaseRecord)",
+      "cr4e3_approval_DuplicateMatchingRecord": "Duplicate Records (cr4e3_approval_DuplicateMatchingRecord)",
+      "cr4e3_approval_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_approval_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_approval_ProcessSession": "Process Sessions",
+      "cr4e3_approval_SyncErrors": "Sync Errors",
+      "cr4e3_approvalid": "Approval",
+      "cr4e3_approvalstep": "ApprovalStep",
+      "cr4e3_approvername": "ApproverName",
+      "cr4e3_name": "Reference",
+      "cr4e3_POR": "POR",
+      "cr4e3_result": "Result",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Approvals",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Approvals (Views)",
+    "Name": "_cr4e3_approval_views",
+    "RelatedEntityName": "Approvals",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2c0b38a6-8aa4-44ec-a311-bd7b81219487": "Approval Lookup View",
+      "3b31ed4a-db5a-4249-b925-c09117248d03": "Approval Associated View",
+      "a3471663-b39b-4d1f-9408-f892548cc7d6": "Active Approvals",
+      "c9f598b9-78c1-4f62-bdf1-edc0a0da8499": "Approval Advanced Find View",
+      "e7fd7bcd-4ca7-44ab-a63c-e084b1ab1f86": "Inactive Approvals"
+    }
+  },
+  {
+    "DisplayName": "Status (Approvals)",
+    "Name": "cr4e3_approval_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Approvals"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Approvals",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Approvals)",
+    "Name": "cr4e3_approval_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Approvals"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Approvals",
+    "Type": "OptionSetInfo"
+  }
+]

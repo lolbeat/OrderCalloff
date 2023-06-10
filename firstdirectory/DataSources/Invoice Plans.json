@@ -1,0 +1,95 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_invoiceplans",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_invoiceplan",
+    "MaxGetRowsCount": 700,
+    "Name": "Invoice Plans",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cr4e3_cr4e3_vendoroa_Invoicing_cr4e3_invoicepla": "VOA Items",
+      "cr4e3_description": "Description",
+      "cr4e3_invoiceplan_AsyncOperations": "System Jobs",
+      "cr4e3_invoiceplan_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_invoiceplan_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_invoiceplan_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_invoiceplan_ProcessSession": "Process Sessions",
+      "cr4e3_invoiceplan_SyncErrors": "Sync Errors",
+      "cr4e3_invoiceplanid": "Invoice Plan",
+      "cr4e3_milestones": "Milestones",
+      "cr4e3_name": "Reference",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Invoice Plans",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Invoice Plans (Views)",
+    "Name": "_cr4e3_invoiceplan_views",
+    "RelatedEntityName": "Invoice Plans",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0573d908-b06a-4be1-93e9-2f0c3fbe7a3a": "Active Invoice Plans",
+      "9356cba6-6943-442c-b04a-7a586b1b3451": "Inactive Invoice Plans",
+      "ae4c64f3-b93a-4c67-aac9-d73906b6a003": "Invoice Plan Lookup View",
+      "d9e4266f-5193-45df-86ba-1b30c2e9aa9a": "Invoice Plan Associated View",
+      "de83fe82-befc-4473-92fa-cb7e2476a210": "Invoice Plan Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Invoice Plans)",
+    "Name": "cr4e3_invoiceplan_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Invoice Plans"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Invoice Plans",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Invoice Plans)",
+    "Name": "cr4e3_invoiceplan_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Invoice Plans"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Invoice Plans",
+    "Type": "OptionSetInfo"
+  }
+]

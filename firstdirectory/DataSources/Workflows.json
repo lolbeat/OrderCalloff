@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_workflows",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_workflow",
+    "MaxGetRowsCount": 700,
+    "Name": "Workflows",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr4e3_cr4e3_purchaseorderrequest_ApprovalWorkfl": "Purchase Order Requests",
+      "cr4e3_cr4e3_workflowstatus_Workflow_cr4e3_workf": "Workflow Steps",
+      "cr4e3_description": "Description",
+      "cr4e3_name": "Name",
+      "cr4e3_workflow_AsyncOperations": "System Jobs",
+      "cr4e3_workflow_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_workflow_DuplicateBaseRecord": "Duplicate Records (cr4e3_workflow_DuplicateBaseRecord)",
+      "cr4e3_workflow_DuplicateMatchingRecord": "Duplicate Records (cr4e3_workflow_DuplicateMatchingRecord)",
+      "cr4e3_workflow_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_workflow_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_workflow_ProcessSession": "Process Sessions",
+      "cr4e3_workflow_SyncErrors": "Sync Errors",
+      "cr4e3_workflowid": "Workflow",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Workflows",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Workflows (Views)",
+    "Name": "_cr4e3_workflow_views",
+    "RelatedEntityName": "Workflows",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "09c7c064-d070-4c96-967d-a1f2fe2da32e": "Workflow Advanced Find View",
+      "0d07c506-f68d-4dc9-b260-6a663e62dd16": "Active Workflows",
+      "29cff952-e0f4-4344-bbf2-ad7cbfdfade4": "Workflow Associated View",
+      "94f42ada-310f-4f56-9e6a-03d2f93fdd21": "Workflow Lookup View",
+      "9e418d8c-0178-4c0e-b3a4-111e5f24a581": "Inactive Workflows"
+    }
+  },
+  {
+    "DisplayName": "Status (Workflows)",
+    "Name": "cr4e3_workflow_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Workflows"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Workflows",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Workflows)",
+    "Name": "cr4e3_workflow_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Workflows"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Workflows",
+    "Type": "OptionSetInfo"
+  }
+]

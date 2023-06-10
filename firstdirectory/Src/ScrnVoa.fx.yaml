@@ -1,0 +1,2389 @@
+"ScrnVoa As screen.'teamsHeroApp_ver1.0'":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+    OnVisible: |-
+        =UpdateContext({ varStyle: { topBarHeight:52, topBarTitleSize:12, topBarTitleLeftPadding:12, topBarIconRightPadding:12, topBarTitleLeftPaddingWithButton:8, iconSize:16, largeIconSize:50, iconPadding:12, spaceBetweenIcons:8, deletePageSideMargins:200, galleryBarHeight:70, searchBarHeight:32, deleteTextHeight:120, deleteConfirmButtonHeight:40, iconButtonFill:RGBA(0,0,0,0.2), iconButtonSmallWidth:30, iconFill: ColorValue("#6264A7"), dividerFill: ColorValue("#EAE9E8"), formLabelFontSize: 10.5, focusBorderColor: ColorValue("#000000"), focusBorderThickness: 2, borderStyle: BorderStyle.Dashed }});
+        
+        //Select first record from gallery for Form Item, in case POR data 'view' (filter) is changing
+        UpdateContext({selectedRecord:First(Gallery_OA.AllItems)});
+
+    LeftContainer1_3 As groupContainer:
+        Height: =Parent.Height
+        Visible: =Self.Width <> 0
+        Width: =Switch(Parent.Size, ScreenSize.Small, If(Or(newMode, editMode, itemSelected), 0, Parent.Width), 280)
+        ZIndex: =2
+
+        Gallery_OA As gallery.BrowseLayout_Vertical_TwoTextVariant_pcfCore:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            DelayItemLoading: =true
+            DisplayMode: =If(Or(newMode,editMode,deleteMode), DisplayMode.Disabled, DisplayMode.Edit)
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            FocusedBorderThickness: =2
+            Height: =Parent.Height - 2 * varStyle.topBarHeight
+            Items: =Sort(If(VaView = 'Vendor Agreements (Views)'.'Vendor Outline Agreement', Filter('Vendor Agreements','Vendor Agreements (Views)'.'Vendor Outline Agreement'), Filter('Vendor Agreements','Vendor Agreements (Views)'.Quotation)), 'Created On', SortOrder.Descending)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: |-
+                =UpdateContext({ itemSelected: true, CurrentItem: ThisItem })
+            TabIndex: =0
+            TemplateFill: =If(Self.IsSelected, RGBA(0,0,0,0.05), RGBA(0,0,0,0))
+            TemplatePadding: =0
+            TemplateSize: =48
+            Width: =Parent.Width
+            Y: =LeftControlContainer1_3.Y + LeftControlContainer1_3.Height
+            ZIndex: =1
+
+            Rectangle7 As rectangle:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                DisabledFill: =RGBA(0,0,0,0)
+                Fill: =RGBA(0,0,0,0)
+                FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                Height: =Parent.TemplateHeight
+                HoverFill: =RGBA(0,0,0,0)
+                OnSelect: =Select(Parent)
+                PressedFill: =RGBA(0,0,0,0)
+                TabIndex: =0
+                Width: =Parent.TemplateWidth
+                ZIndex: =1
+
+            Title5 As Label:
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =10.5
+                FontWeight: =FontWeight.Semibold
+                Height: =24
+                OnSelect: =Select(Parent)
+                PCFTeamsTheme: =TeamsTheme.Default
+                TabIndex: =-1
+                Text: =ThisItem.Reference
+                VerticalAlignment: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 24
+                X: =12
+                Y: =((Parent.TemplateHeight - 36) / 2) - 4
+                ZIndex: =2
+
+            Subtitle4 As Label:
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                FontWeight: =FontWeight.Normal
+                Height: =24
+                OnSelect: =Select(Parent)
+                PCFTeamsTheme: =TeamsTheme.Default
+                TabIndex: =-1
+                Text: =ThisItem.Notes
+                VerticalAlignment: =VerticalAlign.Top
+                Width: =Title5.Width
+                X: =Title5.X
+                Y: =Title5.Y + Title5.Height - 6
+                ZIndex: =3
+
+        TopBar_LeftContainer1_3 As groupContainer:
+            Height: =varStyle.topBarHeight
+            Width: =Parent.Width
+            ZIndex: =3
+
+            AppNameLabel1_3 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(37, 36, 35, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(200, 198, 196, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Role: =TextRole.Heading1
+                Size: =16
+                Text: ="VOA / Quotations"
+                Width: =Parent.Width - varStyle.topBarTitleLeftPadding
+                X: =varStyle.topBarTitleLeftPadding
+                ZIndex: =4
+
+        LeftControlContainer1_3 As groupContainer:
+            Height: =varStyle.topBarHeight
+            Width: =Parent.Width
+            Y: =TopBar_LeftContainer1_3.Y + TopBar_LeftContainer1_3.Height
+            ZIndex: =5
+
+            IconButton_Add1_3 As groupContainer:
+                Height: =varStyle.searchBarHeight
+                Width: =Parent.Width -  varStyle.topBarIconRightPadding
+                Y: =(Parent.Height -  Self.Height) / 2
+                ZIndex: =6
+
+                IconButton_Add_Icon1_2 As icon.Add:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(98, 100, 167, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =If(Or(newMode,editMode,deleteMode), DisplayMode.Disabled, DisplayMode.Edit)
+                    Height: =varStyle.largeIconSize
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Add
+                    PaddingBottom: =varStyle.iconPadding
+                    PaddingTop: =varStyle.iconPadding
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =varStyle.largeIconSize - 2 * varStyle.iconPadding
+                    X: =12
+                    Y: =(Parent.Height -  Self.Height) / 2
+                    ZIndex: =7
+
+                IconButton_Add_Label1_2 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(37, 36, 35, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisplayMode: =If(Or(newMode,editMode,deleteMode), DisplayMode.Disabled, DisplayMode.Edit)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =Parent.Height
+                    Size: =10.5
+                    Text: ="Create New"
+                    Width: =Parent.Width - IconButton_Add_Icon1_2.X - IconButton_Add_Icon1_2.Width
+                    X: =IconButton_Add_Icon1_2.X + IconButton_Add_Icon1_2.Width
+                    ZIndex: =8
+
+                TouchTarget_New1_2 As rectangle:
+                    AccessibleLabel: =Self.Tooltip
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =varStyle.borderStyle
+                    BorderThickness: =2
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    DisplayMode: =If(Or(newMode,editMode,deleteMode), DisplayMode.Disabled, DisplayMode.Edit)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderColor: =varStyle.focusBorderColor
+                    FocusedBorderThickness: =varStyle.focusBorderThickness
+                    Height: =Parent.Height
+                    HoverFill: =varStyle.iconButtonFill
+                    OnSelect: |-
+                        =NewForm(EditForm_OtlnAgrmnt); UpdateContext({newMode: true});
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Tooltip: ="Create New"
+                    Width: =Parent.Width
+                    ZIndex: =9
+
+    LeftRightDivider1_3 As rectangle:
+        BorderColor: =RGBA(243, 242, 241, 1)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(200, 198, 196, 1)
+        Fill: =varStyle.dividerFill
+        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+        Height: =Parent.Height
+        HoverFill: =RGBA(98, 100, 167, 1)
+        PressedFill: =RGBA(98, 100, 167, 1)
+        Width: =1
+        X: =LeftContainer1_3.Width
+        ZIndex: =11
+
+    RightContainer1_3 As groupContainer:
+        Height: =Parent.Height
+        Visible: =Self.Width <> 0
+        Width: =Parent.Width - Self.X
+        X: =LeftContainer1_3.Width
+        ZIndex: =12
+
+        TopBar_RightContainer1_3 As groupContainer:
+            Height: =varStyle.topBarHeight
+            Width: =Parent.Width
+            ZIndex: =1
+
+            TimerCancel1_3 As timer:
+                BorderColor: =RGBA(98, 100, 167, 1)
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(200, 198, 196, 1)
+                DisabledFill: =RGBA(243, 242, 241, 1)
+                Duration: =200
+                Fill: =RGBA(98, 100, 167, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =0
+                HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -10%)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(98, 100, 167, 1), -10%)
+                OnTimerEnd: =SetFocus(IconButton_Cancel1_3)
+                PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                Size: =10.5
+                Start: =Or(editMode, newMode)
+                TabIndex: =-1
+                Text: =""
+                Visible: =false
+                Width: =0
+                ZIndex: =14
+
+            TimerDeleteCancelled1_3 As timer:
+                BorderColor: =RGBA(98, 100, 167, 1)
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(200, 198, 196, 1)
+                DisabledFill: =RGBA(243, 242, 241, 1)
+                Duration: =200
+                Fill: =RGBA(98, 100, 167, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =0
+                HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -10%)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(98, 100, 167, 1), -10%)
+                OnTimerEnd: |-
+                    =SetFocus(IconButton_Delete1_3); UpdateContext({deleteCancelled:false});
+                PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                Size: =10.5
+                Start: =deleteCancelled
+                TabIndex: =-1
+                Text: =""
+                Visible: =false
+                Width: =0
+                ZIndex: =15
+
+            IconButton_Back1_3 As icon.ChevronLeft:
+                AccessibleLabel: =Self.Tooltip
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =varStyle.borderStyle
+                Color: =RGBA(98, 100, 167, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =varStyle.focusBorderColor
+                FocusedBorderThickness: =varStyle.focusBorderThickness
+                Height: =varStyle.largeIconSize
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.ChevronLeft
+                OnSelect: |-
+                    =UpdateContext({itemSelected:false})
+                PaddingBottom: =varStyle.iconPadding
+                PaddingLeft: =varStyle.iconPadding
+                PaddingRight: =varStyle.iconPadding
+                PaddingTop: =varStyle.iconPadding
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                TabIndex: =0
+                Tooltip: ="Back"
+                Visible: =If(App.ActiveScreen.Size = ScreenSize.Small, And(!editMode, !newMode, !deleteMode), false)
+                Width: =varStyle.largeIconSize
+                X: =varStyle.topBarTitleLeftPadding
+                Y: =(Parent.Height -  Self.Height) / 2
+                ZIndex: =20
+
+            IconButton_Delete1_3 As icon.Trash:
+                AccessibleLabel: =Self.Tooltip
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =varStyle.borderStyle
+                Color: =RGBA(98, 100, 167, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =varStyle.focusBorderColor
+                FocusedBorderThickness: =varStyle.focusBorderThickness
+                Height: =varStyle.largeIconSize
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Trash
+                OnSelect: |-
+                    =UpdateContext({deleteMode:true, deleteCancelled:false, selectedRecord: Gallery_OA.Selected })
+                PaddingBottom: =varStyle.iconPadding
+                PaddingLeft: =varStyle.iconPadding
+                PaddingRight: =varStyle.iconPadding
+                PaddingTop: =varStyle.iconPadding
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                TabIndex: =0
+                Tooltip: ="Delete"
+                Visible: =And(!editMode, !newMode, !deleteMode)
+                Width: =varStyle.largeIconSize
+                X: =IconButton_Edit1_3.X - varStyle.spaceBetweenIcons - Self.Width
+                Y: =(Parent.Height -  Self.Height) / 2
+                ZIndex: =22
+
+            IconButton_Edit1_3 As icon.Edit:
+                AccessibleLabel: =Self.Tooltip
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =varStyle.borderStyle
+                Color: =RGBA(98, 100, 167, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =varStyle.focusBorderColor
+                FocusedBorderThickness: =varStyle.focusBorderThickness
+                Height: =varStyle.largeIconSize
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Edit
+                OnSelect: |-
+                    =UpdateContext({selectedRecord: Gallery_OA.Selected, editMode:true});
+                    UpdateContext({edtFrmVsbl: true});
+                    NewForm(FormVoaItm)
+                PaddingBottom: =varStyle.iconPadding
+                PaddingLeft: =varStyle.iconPadding
+                PaddingRight: =varStyle.iconPadding
+                PaddingTop: =varStyle.iconPadding
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                TabIndex: =0
+                Tooltip: ="Edit"
+                Visible: =And(!editMode, !newMode, !deleteMode)
+                Width: =varStyle.largeIconSize
+                X: =Parent.Width - Self.Width - varStyle.topBarTitleLeftPadding
+                Y: =(Parent.Height -  Self.Height) / 2
+                ZIndex: =23
+
+            IconButton_Cancel1_3 As icon.Cancel:
+                AccessibleLabel: =Self.Tooltip
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =varStyle.borderStyle
+                Color: =RGBA(98, 100, 167, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =varStyle.focusBorderColor
+                FocusedBorderThickness: =varStyle.focusBorderThickness
+                Height: =varStyle.largeIconSize
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Cancel
+                OnSelect: |-
+                    =ResetForm(EditForm_OtlnAgrmnt); UpdateContext({editMode: false, newMode: false});
+                PaddingBottom: =varStyle.iconPadding
+                PaddingLeft: =varStyle.iconPadding
+                PaddingRight: =varStyle.iconPadding
+                PaddingTop: =varStyle.iconPadding
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                TabIndex: =0
+                Tooltip: ="Cancel"
+                Visible: =Or(editMode, newMode)
+                Width: =varStyle.largeIconSize
+                X: =IconButton_Accept1_3.X - varStyle.spaceBetweenIcons - Self.Width
+                Y: =(Parent.Height -  Self.Height) / 2
+                ZIndex: =24
+
+            IconButton_Accept1_3 As icon.Check:
+                AccessibleLabel: =Self.Tooltip
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =varStyle.borderStyle
+                Color: =RGBA(98, 100, 167, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =varStyle.focusBorderColor
+                FocusedBorderThickness: =varStyle.focusBorderThickness
+                Height: =varStyle.largeIconSize
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Check
+                OnSelect: =SubmitForm(EditForm_OtlnAgrmnt)
+                PaddingBottom: =varStyle.iconPadding
+                PaddingLeft: =varStyle.iconPadding
+                PaddingRight: =varStyle.iconPadding
+                PaddingTop: =varStyle.iconPadding
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                TabIndex: =0
+                Tooltip: ="Save record"
+                Visible: =Or(editMode, newMode)
+                Width: =varStyle.largeIconSize
+                X: =Parent.Width - Self.Width - varStyle.topBarTitleLeftPadding
+                Y: =(Parent.Height -  Self.Height) / 2
+                ZIndex: =25
+
+            IconButton_Home1_3 As icon.Home:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(98, 100, 167, 1)
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Home
+                OnSelect: =Navigate(ScrnHome)
+                PaddingBottom: =12
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =12
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =50
+                X: |-
+                    =//IconButton_Delete1_3.X - varStyle.spaceBetweenIcons - Self.Width
+                    0
+                Y: =(Parent.Height -  Self.Height) / 2
+                ZIndex: =26
+
+        EditForm_OtlnAgrmnt As form:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            DataSource: ='Vendor Agreements'
+            DefaultMode: =If(newMode, FormMode.New, If(editMode, FormMode.Edit, FormMode.View))
+            Height: =250
+            Item: |-
+                =//If(Gallery_OA.DisplayMode = DisplayMode.Disabled, selectedRecord, Gallery_OA.Selected)
+                If(IsBlank(Gallery_OA.Selected), selectedRecord, Gallery_OA.Selected)
+            NumberOfColumns: =6
+            OnFailure: =Notify("Cannot save. Please check if there are errors in the form.",NotificationType.Error)
+            OnSuccess: |-
+                =If(
+                    newMode,
+                    Patch(
+                        'VOA Items',
+                        UpdateIf(
+                            colVoaItems,
+                            true,
+                            {VOA: Self.LastSubmit}
+                        )
+                    );
+                    Clear(colVoaItems)
+                );
+                UpdateContext(
+                    {
+                        CurrentItem: Self.LastSubmit,
+                        editMode: false,
+                        newMode: false
+                    }
+                )
+            Visible: =!deleteMode
+            Width: =Parent.Width
+            Y: =TopBar_RightContainer1_3.Y + TopBar_RightContainer1_3.Height
+            ZIndex: =2
+
+            Vendor_DataCard2 As typedDataCard.pcfCoreComboBoxEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr4e3_Vendor"
+                Default: =ThisItem.Vendor
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Vendor Agreements'],DataSourceInfo.DisplayName,"cr4e3_Vendor")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue39.Selected
+                Width: =362
+                WidthFit: =true
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey45 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue39 As combobox:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =Parent.Default
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["cr4e3_name"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =32
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    Items: =Choices([@'Vendor Agreements'].cr4e3_Vendor)
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["cr4e3_name"]
+                    SearchItems: =Search(Choices([@'Vendor Agreements'].cr4e3_Vendor),DataCardValue39.SearchText,"cr4e3_name")
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =12
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey45.Y + DataCardKey45.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage37 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue39.Y + DataCardValue39.Height
+                    ZIndex: =3
+
+                StarVisible37 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey45.Y
+                    ZIndex: =4
+
+            Reference_DataCard2 As typedDataCard.pcfCoreTextualEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr4e3_name"
+                Default: =ThisItem.Reference
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Vendor Agreements'],DataSourceInfo.DisplayName,"cr4e3_name")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@'Vendor Agreements'], DataSourceInfo.MaxLength, "cr4e3_name")
+                Required: =false
+                Update: =DataCardValue31.Value
+                Width: =362
+                WidthFit: =true
+                X: =4
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey35 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue31 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =32
+                    Mode: ="SingleLine"
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey35.Y + DataCardKey35.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage41 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue31.Y + DataCardValue31.Height
+                    ZIndex: =3
+
+                StarVisible41 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey35.Y
+                    ZIndex: =4
+
+            Quotation_DataCard1 As typedDataCard.pcfCoreComboBoxOptionSetSingleEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr4e3_quotation"
+                Default: =ThisItem.Quotation
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Vendor Agreements'],DataSourceInfo.DisplayName,"cr4e3_quotation")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =true
+                Update: =DataCardValue29.Selected.Value
+                Width: =362
+                WidthFit: =true
+                X: =0
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey47 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue29 As combobox:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =32
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =Choices('Quotation (Vendor Agreements)')
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey47.Y + DataCardKey47.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage40 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue29.Y + DataCardValue29.Height
+                    ZIndex: =3
+
+                StarVisible40 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey47.Y
+                    ZIndex: =4
+
+            Notes_DataCard1 As typedDataCard.pcfCoreTextualMultiLineEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr4e3_notes"
+                Default: =ThisItem.Notes
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Vendor Agreements'],DataSourceInfo.DisplayName,"cr4e3_notes")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue32.Value
+                Width: =362
+                WidthFit: =true
+                X: =2
+                Y: =0
+                ZIndex: =22
+
+                DataCardKey36 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue32 As 'Text box'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    FontSize: =10.5
+                    Height: =48
+                    Mode: ="Multiline"
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Required: =Parent.Required
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey36.Y + DataCardKey36.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage29 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue32.Y + DataCardValue32.Height
+                    ZIndex: =3
+
+                StarVisible29 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey36.Y
+                    ZIndex: =4
+
+            "'Validity Start_DataCard1' As typedDataCard.pcfCoreDateTimeEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr4e3_validitystart"
+                Default: =ThisItem.'Validity Start'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Vendor Agreements'],DataSourceInfo.DisplayName,"cr4e3_validitystart")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =true
+                Update: =Date(Year(DateValue4.Value), Month(DateValue4.Value), Day(DateValue4.Value)) + Time(Value(HourValue4.Selected.Value), Value(MinuteValue4.Selected.Value), Value(Second(DateValue4.Value)))
+                Width: =362
+                WidthFit: =true
+                X: =0
+                Y: =1
+                ZIndex: =22
+
+                DataCardKey37 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DateValue4 As 'Date picker'":
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =32
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =(Parent.Width - 48) / 2
+                    X: =24
+                    Y: =DataCardKey37.Y + DataCardKey37.Height + 4
+                    ZIndex: =2
+
+                HourValue4 As combobox:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Text(Hour(Parent.Default),"00")]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =DateValue4.Width / 2 - 10
+                    X: =DateValue4.X + DateValue4.Width + 10
+                    Y: =DateValue4.Y + 1
+                    ZIndex: =3
+
+                Separator4 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =10.5
+                    Height: =HourValue4.Height
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: |-
+                        =":"
+                    VerticalAlignment: =VerticalAlign.Middle
+                    Width: =10
+                    X: =HourValue4.X + HourValue4.Width
+                    Y: =HourValue4.Y
+                    ZIndex: =4
+
+                MinuteValue4 As combobox:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Text(Minute(Parent.Default),"00")]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =HourValue4.Width
+                    X: =HourValue4.X + HourValue4.Width + Separator4.Width
+                    Y: =HourValue4.Y + 1
+                    ZIndex: =5
+
+                ErrorMessage30 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DateValue4.Y + DateValue4.Height
+                    ZIndex: =6
+
+                StarVisible30 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey37.Y
+                    ZIndex: =7
+
+            "'Validity End_DataCard1' As typedDataCard.pcfCoreDateTimeEditCard":
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr4e3_validityend"
+                Default: =ThisItem.'Validity End'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Vendor Agreements'],DataSourceInfo.DisplayName,"cr4e3_validityend")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =true
+                Update: =Date(Year(DateValue5.Value), Month(DateValue5.Value), Day(DateValue5.Value)) + Time(Value(HourValue5.Selected.Value), Value(MinuteValue5.Selected.Value), Value(Second(DateValue5.Value)))
+                Width: =362
+                WidthFit: =true
+                X: =2
+                Y: =1
+                ZIndex: =22
+
+                DataCardKey38 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DateValue5 As 'Date picker'":
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =32
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Tooltip: =Parent.DisplayName
+                    Value: =Parent.Default
+                    Width: =(Parent.Width - 48) / 2
+                    X: =24
+                    Y: =DataCardKey38.Y + DataCardKey38.Height + 4
+                    ZIndex: =2
+
+                HourValue5 As combobox:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Text(Hour(Parent.Default),"00")]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =DateValue5.Width / 2 - 10
+                    X: =DateValue5.X + DateValue5.Width + 10
+                    Y: =DateValue5.Y + 1
+                    ZIndex: =3
+
+                Separator5 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =10.5
+                    Height: =HourValue5.Height
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: |-
+                        =":"
+                    VerticalAlignment: =VerticalAlign.Middle
+                    Width: =10
+                    X: =HourValue5.X + HourValue5.Width
+                    Y: =HourValue5.Y
+                    ZIndex: =4
+
+                MinuteValue5 As combobox:
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =[Text(Minute(Parent.Default),"00")]
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =28
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    SelectMultiple: =false
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =HourValue5.Width
+                    X: =HourValue5.X + HourValue5.Width + Separator5.Width
+                    Y: =HourValue5.Y + 1
+                    ZIndex: =5
+
+                ErrorMessage31 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DateValue5.Y + DateValue5.Height
+                    ZIndex: =6
+
+                StarVisible31 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey38.Y
+                    ZIndex: =7
+
+            Products_DataCard1 As typedDataCard.pcfCoreComboBoxOptionSetMultiEditCard:
+                BorderColor: =RGBA(243, 242, 241, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr4e3_products"
+                Default: =ThisItem.Products
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Vendor Agreements'],DataSourceInfo.DisplayName,"cr4e3_products")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue33.SelectedItems.Value
+                Width: =362
+                WidthFit: =true
+                X: =4
+                Y: =1
+                ZIndex: =22
+
+                DataCardKey39 As Label:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =22
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.DisplayName
+                    Tooltip: =Parent.DisplayName
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue33 As combobox:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    ChevronBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                    ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                    ChevronFill: =RGBA(96, 94, 92, 1)
+                    ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                    ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                    Color: =RGBA(37, 36, 35, 1)
+                    DefaultSelectedItems: =Parent.Default
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(200, 198, 196, 1)
+                    DisabledFill: =RGBA(243, 242, 241, 1)
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(243, 242, 241, 1)
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Font: =Font.'Segoe UI'
+                    Height: =32
+                    HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverColor: =RGBA(37, 36, 35, 1)
+                    HoverFill: =RGBA(243, 242, 241, 1)
+                    IsSearchable: =false
+                    Items: =Choices('Product Category')
+                    PaddingLeft: =12
+                    PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(243, 242, 241, 1)
+                    SearchFields: =["Value"]
+                    SearchItems: =[]
+                    SelectionColor: =RGBA(37, 36, 35, 1)
+                    SelectionFill: =RGBA(237, 235, 233, 1)
+                    Size: =10.5
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey39.Y + DataCardKey39.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage32 As Label:
+                    AutoHeight: =true
+                    Color: =Color.Red
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =9
+                    Height: =30
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: =Parent.Error
+                    Tooltip: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue33.Y + DataCardValue33.Height
+                    ZIndex: =3
+
+                StarVisible32 As Label:
+                    Alignment: =Align.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    PCFTeamsTheme: =TeamsTheme.Default
+                    Text: ="*"
+                    VerticalAlignment: =VerticalAlign.Bottom
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey39.Y
+                    ZIndex: =4
+
+        TopBottomDivider1_3 As rectangle:
+            BorderColor: =RGBA(243, 242, 241, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(200, 198, 196, 1)
+            Fill: =varStyle.dividerFill
+            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+            Height: =1
+            HoverFill: =RGBA(98, 100, 167, 1)
+            PressedFill: =RGBA(98, 100, 167, 1)
+            Width: =Parent.Width
+            Y: =TopBar_RightContainer1_3.Height
+            ZIndex: =3
+
+        btnHeader_3 As Button:
+            Alignment: =Align.Center
+            DisabledFillColor: =RGBA(224, 224, 237, 1)
+            DisabledTextColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            FillColor: =RGBA(224, 224, 237, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            PCFTeamsTheme: =TeamsTheme.Default
+            Text: ="VOA Item Details"
+            TextColor: =RGBA(0, 0, 0, 1)
+            Width: |
+                =Parent.Width
+            X: =0
+            Y: =302
+            ZIndex: =4
+
+        Container_VoaItms As groupContainer.horizontalAutoLayoutContainer:
+            Height: |
+                =Parent.Height-btnHeader_3.Y-btnHeader_3.Height
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            Y: =btnHeader_3.Y+btnHeader_3.Height
+            ZIndex: =5
+
+            ContainerLeft_1 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =1.3
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowX: =LayoutOverflow.Scroll
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                Width: =600
+                ZIndex: =1
+
+                CntnrHeaders_1 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    Fill: =RGBA(230, 230, 230, 1)
+                    FillPortions: =0.05
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    LblHdrPosNo As Label:
+                        AlignInContainer: =AlignInContainer.Center
+                        Alignment: =Align.Left
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =50
+                        Text: ="POS."
+                        Width: =35
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    LblHdrItmId As Label:
+                        AlignInContainer: =AlignInContainer.Center
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =100
+                        Text: ="Item ID"
+                        Width: =85
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                    LblHdrMtCd As Label:
+                        AlignInContainer: =AlignInContainer.Center
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =100
+                        Text: ="Material Code"
+                        Width: =100
+                        X: =0
+                        Y: =0
+                        ZIndex: =3
+
+                    LblHdrInv As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =35
+                        Text: ="Invoicing"
+                        Width: =50
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
+                    LblHdrMatDscptn As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =240
+                        Overflow: ='Label.Overflow'.Hidden
+                        Text: ="Material Description"
+                        Width: =220
+                        X: =0
+                        Y: =0
+                        ZIndex: =5
+
+                    LblHdrPrice As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =240
+                        Overflow: ='Label.Overflow'.Hidden
+                        Text: ="Price (RM)"
+                        Width: =70
+                        X: =0
+                        Y: =0
+                        ZIndex: =6
+
+                Gallery_VoaItms As gallery.BrowseLayout_Vertical_ThreeTextVariant_pcfCore:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    DelayItemLoading: =true
+                    FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                    FocusedBorderThickness: =2
+                    Items: |-
+                        =Sort(
+                            If(
+                            EditForm_OtlnAgrmnt.Mode = FormMode.New,
+                            colVoaItems,
+                            Filter(
+                                'VOA Items',
+                                VOA.'Vendor Agreement' = Gallery_OA.Selected.'Vendor Agreement'
+                            )
+                        )
+                        , 'POS No.'
+                        )
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =287
+                    LayoutMinWidth: =320
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =40
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                    lblVoaiPrice As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Normal
+                        Height: =25
+                        OnSelect: =Select(Parent)
+                        Overflow: ='Label.Overflow'.Hidden
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.'Net Price'
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrPrice.Width
+                        X: =LblHdrMatDscptn.X + LblHdrMatDscptn.Width
+                        Y: =7
+                        ZIndex: =1
+
+                    lblVoaiMtrlDscrptn As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Normal
+                        Height: =25
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.Description
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrMatDscptn.Width
+                        X: =lblVoaiInvcng.X + lblVoaiInvcng.Width
+                        Y: =7
+                        ZIndex: =2
+
+                    lblVoaiInvcng As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Normal
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.Invoicing.Description
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrInv.Width
+                        X: =lblVoaiMtrlCd.X + lblVoaiMtrlCd.Width
+                        Y: =7
+                        ZIndex: =3
+
+                    lblVoaiMtrlCd As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Normal
+                        Height: =24
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.'Material Code'
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrMtCd.Width
+                        X: =lblVoaiItmId.X + lblVoaiItmId.Width
+                        Y: =7
+                        ZIndex: =4
+
+                    lblVoaiItmId As Label:
+                        Alignment: =Align.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Normal
+                        Height: =29
+                        OnSelect: =Select(Parent)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.'Item ID'
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrItmId.Width
+                        X: =LblHdrPosNo.Width
+                        Y: =7
+                        ZIndex: =5
+
+                    lblVoaiPosNo As Label:
+                        Alignment: =Align.Left
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =9
+                        FontWeight: =FontWeight.Normal
+                        Height: =26
+                        OnSelect: =Select(Parent)
+                        Overflow: ='Label.Overflow'.Hidden
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        TabIndex: =-1
+                        Text: =ThisItem.'POS No.'
+                        VerticalAlignment: =VerticalAlign.Top
+                        Width: =LblHdrPosNo.Width
+                        X: =0
+                        Y: =7
+                        ZIndex: =6
+
+                    RctnglGllryItm_1 As rectangle:
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        DisabledFill: =RGBA(0,0,0,0)
+                        Fill: =RGBA(0,0,0,0)
+                        FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                        Height: =40
+                        HoverFill: =RGBA(0,0,0,0)
+                        OnSelect: =Select(Parent)
+                        PressedFill: =RGBA(0,0,0,0)
+                        TabIndex: =0
+                        Width: =Parent.TemplateWidth
+                        ZIndex: =7
+
+                    icnEdtVoai As icon.Edit:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Color: =RGBA(98, 100, 167, 1)
+                        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                        DisabledColor: =RGBA(220, 220, 220, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =25
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Icon: =Icon.Edit
+                        OnSelect: |-
+                            =UpdateContext({edtFrmVsbl: true});
+                            EditForm(FormVoaItm)
+                        PaddingBottom: =3
+                        PaddingLeft: =3
+                        PaddingRight: =3
+                        PaddingTop: =3
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Tooltip: ="Edit VOA Item"
+                        Width: =25
+                        X: =Parent.Width-50
+                        Y: =7
+                        ZIndex: =8
+
+                CntnrPorTotals_3 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(230, 230, 230, 1)
+                    FillPortions: =0
+                    Height: =50
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =550
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutOverflowX: =LayoutOverflow.Scroll
+                    LayoutOverflowY: =LayoutOverflow.Scroll
+                    PaddingLeft: =15
+                    Width: =Parent.Width
+                    ZIndex: =3
+
+                    LblTtlsSpcr_3 As Label:
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        FontSize: =12
+                        FontWeight: =FontWeight.Bold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Text: ="Totals"
+                        Width: =LblHdrPorItmPos_2.Width + LblHdrQcMtrlDscprn_2.Width + LblHdrVoaPrchsItm_2.Width + LblHdrNtPrc_2.Width +LblHdrQty_3.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    LblHdrTtlPrc_7 As Label:
+                        Alignment: =Align.Left
+                        AutoHeight: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =12
+                        FontWeight: =FontWeight.Bold
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Overflow: ='Label.Overflow'.Hidden
+                        Text: |-
+                            =//Text(Sum(ShowColumns(Filter('Order Request Items', cr4e3_PORID.'Purchase Order Request' = GUID(varPorId)),"cr4e3_price"), Value(cr4e3_price)),"RM #,##0.00")
+                            Text(Sum(ShowColumns(Filter('VOA Items', cr4e3_VOA.'Vendor Agreement' = CurrentItem.'Vendor Agreement' ),"cr4e3_netprice"), Value(cr4e3_netprice)),"RM #,##0.00")
+                        Width: =LblHdrTtlPrc_3.Width + 100
+                        X: =0
+                        Y: =0
+                        ZIndex: =3
+
+            ContainerVoaItmFrm As groupContainer.verticalAutoLayoutContainer:
+                BorderColor: =RGBA(68, 70, 116, 1)
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowX: =LayoutOverflow.Scroll
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                Visible: =edtFrmVsbl And ScrnPrchsOrdrRqst.Size > ScreenSize.Small
+                ZIndex: =3
+
+                Icon2 As icon.Cancel:
+                    AlignInContainer: =AlignInContainer.End
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(98, 100, 167, 1)
+                    DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Height: =32
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Cancel
+                    OnSelect: |-
+                        =UpdateContext({edtFrmVsbl: false});
+                    PaddingBottom: =3
+                    PaddingLeft: =3
+                    PaddingRight: =3
+                    PaddingTop: =3
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =32
+                    ZIndex: =1
+
+                FormVoaItm As form:
+                    AcceptsFocus: =false
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    DataSource: ='VOA Items'
+                    DefaultMode: =FormMode.New
+                    Item: =Gallery_VoaItms.Selected
+                    LayoutMinHeight: =250
+                    LayoutMinWidth: =400
+                    NumberOfColumns: =2
+                    OnSuccess: =ResetForm(FormVoaItm)
+                    ZIndex: =2
+
+                    VOA_DataCard1 As typedDataCard.pcfCoreComboBoxEditCard:
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="cr4e3_VOA"
+                        Default: =Gallery_OA.Selected
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@'VOA Items'],DataSourceInfo.DisplayName,"cr4e3_VOA")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =70
+                        Required: =false
+                        Update: =DataCardValue40.Selected
+                        Width: =236
+                        WidthFit: =true
+                        X: =0
+                        Y: =4
+                        ZIndex: =1
+
+                        DataCardKey46 As Label:
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =22
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: =Parent.DisplayName
+                            Tooltip: =Parent.DisplayName
+                            VerticalAlignment: =VerticalAlign.Bottom
+                            Width: =Parent.Width - 48
+                            Wrap: =true
+                            X: =24
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue40 As combobox:
+                            AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                            BorderColor: =RGBA(243, 242, 241, 1)
+                            ChevronBackground: =RGBA(243, 242, 241, 1)
+                            ChevronDisabledBackground: =RGBA(243, 242, 241, 1)
+                            ChevronDisabledFill: =RGBA(200, 198, 196, 1)
+                            ChevronFill: =RGBA(96, 94, 92, 1)
+                            ChevronHoverBackground: =RGBA(243, 242, 241, 1)
+                            ChevronHoverFill: =RGBA(96, 94, 92, 1)
+                            Color: =RGBA(37, 36, 35, 1)
+                            DefaultSelectedItems: =Parent.Default
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(200, 198, 196, 1)
+                            DisabledFill: =RGBA(243, 242, 241, 1)
+                            DisplayFields: =["cr4e3_name"]
+                            DisplayMode: =Parent.DisplayMode
+                            Fill: =RGBA(243, 242, 241, 1)
+                            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                            FocusedBorderThickness: =2
+                            Font: =Font.'Segoe UI'
+                            Height: =32
+                            HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                            HoverColor: =RGBA(37, 36, 35, 1)
+                            HoverFill: =RGBA(243, 242, 241, 1)
+                            Items: =Choices([@'VOA Items'].cr4e3_VOA)
+                            PaddingLeft: =12
+                            PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =RGBA(243, 242, 241, 1)
+                            SearchFields: =["cr4e3_name"]
+                            SearchItems: =Search(Choices([@'VOA Items'].cr4e3_VOA),DataCardValue40.SearchText,"cr4e3_name")
+                            SelectionColor: =RGBA(37, 36, 35, 1)
+                            SelectionFill: =RGBA(237, 235, 233, 1)
+                            SelectMultiple: =false
+                            Size: =10.5
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 48
+                            X: =24
+                            Y: =DataCardKey46.Y + DataCardKey46.Height + 4
+                            ZIndex: =2
+
+                        ErrorMessage38 As Label:
+                            AutoHeight: =true
+                            Color: =Color.Red
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =30
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: =Parent.Error
+                            Tooltip: =Parent.Error
+                            Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =Parent.Width - 48
+                            Wrap: =true
+                            X: =24
+                            Y: =DataCardValue40.Y + DataCardValue40.Height
+                            ZIndex: =3
+
+                        StarVisible38 As Label:
+                            Alignment: =Align.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =20
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: ="*"
+                            VerticalAlignment: =VerticalAlign.Bottom
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            X: =0
+                            Y: =DataCardKey46.Y
+                            ZIndex: =4
+
+                    "'POS No._DataCard1' As typedDataCard.pcfCoreNumberEditCard":
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="cr4e3_posno"
+                        Default: =ThisItem.'POS No.'
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@'VOA Items'],DataSourceInfo.DisplayName,"cr4e3_posno")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =70
+                        Required: =true
+                        Update: =Value(DataCardValue35.Text)
+                        Width: =271
+                        WidthFit: =true
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                        DataCardKey41 As Label:
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =22
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: =Parent.DisplayName
+                            Tooltip: =Parent.DisplayName
+                            VerticalAlignment: =VerticalAlign.Bottom
+                            Width: =Parent.Width - 48
+                            Wrap: =true
+                            X: =24
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue35 As text:
+                            AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                            BorderColor: =RGBA(243, 242, 241, 1)
+                            BorderThickness: =0
+                            Color: =RGBA(37, 36, 35, 1)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(200, 198, 196, 1)
+                            DisabledFill: =RGBA(243, 242, 241, 1)
+                            DisplayMode: =Parent.DisplayMode
+                            Fill: =RGBA(243, 242, 241, 1)
+                            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                            FocusedBorderThickness: =2
+                            Font: =Font.'Segoe UI'
+                            Format: =TextFormat.Number
+                            Height: =32
+                            HoverBorderColor: =RGBA(243, 242, 241, 1)
+                            HoverColor: =RGBA(37, 36, 35, 1)
+                            HoverFill: =RGBA(243, 242, 241, 1)
+                            PaddingBottom: =4
+                            PaddingRight: =12
+                            PaddingTop: =0
+                            PressedBorderColor: =RGBA(98, 100, 167, 1)
+                            PressedColor: =RGBA(37, 36, 35, 1)
+                            PressedFill: =RGBA(243, 242, 241, 1)
+                            RadiusBottomLeft: =3
+                            RadiusBottomRight: =3
+                            RadiusTopLeft: =3
+                            RadiusTopRight: =3
+                            Size: =10.5
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 48
+                            X: =24
+                            Y: =DataCardKey41.Y + DataCardKey41.Height + 4
+                            ZIndex: =2
+
+                        ErrorMessage33 As Label:
+                            AutoHeight: =true
+                            Color: =Color.Red
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =30
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: =Parent.Error
+                            Tooltip: =Parent.Error
+                            Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =Parent.Width - 48
+                            Wrap: =true
+                            X: =24
+                            Y: =DataCardValue35.Y + DataCardValue35.Height
+                            ZIndex: =3
+
+                        StarVisible33 As Label:
+                            Alignment: =Align.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =30
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            X: =0
+                            Y: =DataCardKey41.Y
+                            ZIndex: =4
+
+                    "'Material Code_DataCard2' As typedDataCard.pcfCoreTextualEditCard":
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="cr4e3_materialcode"
+                        Default: =ThisItem.'Material Code'
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@'VOA Items'],DataSourceInfo.DisplayName,"cr4e3_materialcode")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =70
+                        MaxLength: =DataSourceInfo([@'VOA Items'], DataSourceInfo.MaxLength, "cr4e3_materialcode")
+                        Required: =true
+                        Update: =DataCardValue37.Value
+                        Width: =271
+                        WidthFit: =true
+                        X: =0
+                        Y: =1
+                        ZIndex: =2
+
+                        DataCardKey43 As Label:
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =22
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: =Parent.DisplayName
+                            Tooltip: =Parent.DisplayName
+                            VerticalAlignment: =VerticalAlign.Bottom
+                            Width: =Parent.Width - 48
+                            Wrap: =true
+                            X: =24
+                            Y: =10
+                            ZIndex: =1
+
+                        "DataCardValue37 As 'Text box'":
+                            AccessibleLabel: =Parent.DisplayName
+                            DisplayMode: =Parent.DisplayMode
+                            FontSize: =10.5
+                            Height: =32
+                            Mode: ="SingleLine"
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Required: =Parent.Required
+                            Tooltip: =Parent.DisplayName
+                            Value: =Parent.Default
+                            Width: =Parent.Width - 48
+                            X: =24
+                            Y: =DataCardKey43.Y + DataCardKey43.Height + 4
+                            ZIndex: =2
+
+                        ErrorMessage35 As Label:
+                            AutoHeight: =true
+                            Color: =Color.Red
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =30
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: =Parent.Error
+                            Tooltip: =Parent.Error
+                            Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =Parent.Width - 48
+                            Wrap: =true
+                            X: =24
+                            Y: =DataCardValue37.Y + DataCardValue37.Height
+                            ZIndex: =3
+
+                        StarVisible35 As Label:
+                            Alignment: =Align.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =30
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            X: =0
+                            Y: =DataCardKey43.Y
+                            ZIndex: =4
+
+                    Description_DataCard1 As typedDataCard.pcfCoreTextualEditCard:
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="cr4e3_description"
+                        Default: =ThisItem.Description
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@'VOA Items'],DataSourceInfo.DisplayName,"cr4e3_description")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =70
+                        MaxLength: =DataSourceInfo([@'VOA Items'], DataSourceInfo.MaxLength, "cr4e3_description")
+                        Required: =false
+                        Update: =DataCardValue38.Value
+                        Width: =271
+                        WidthFit: =true
+                        X: =0
+                        Y: =2
+                        ZIndex: =2
+
+                        DataCardKey44 As Label:
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =22
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: =Parent.DisplayName
+                            Tooltip: =Parent.DisplayName
+                            VerticalAlignment: =VerticalAlign.Bottom
+                            Width: =Parent.Width - 48
+                            Wrap: =true
+                            X: =24
+                            Y: =10
+                            ZIndex: =1
+
+                        "DataCardValue38 As 'Text box'":
+                            AccessibleLabel: =Parent.DisplayName
+                            DisplayMode: =Parent.DisplayMode
+                            FontSize: =10.5
+                            Height: =32
+                            Mode: ="SingleLine"
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Required: =Parent.Required
+                            Tooltip: =Parent.DisplayName
+                            Value: =Parent.Default
+                            Width: =Parent.Width - 48
+                            X: =24
+                            Y: =DataCardKey44.Y + DataCardKey44.Height + 4
+                            ZIndex: =2
+
+                        ErrorMessage36 As Label:
+                            AutoHeight: =true
+                            Color: =Color.Red
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =30
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: =Parent.Error
+                            Tooltip: =Parent.Error
+                            Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =Parent.Width - 48
+                            Wrap: =true
+                            X: =24
+                            Y: =DataCardValue38.Y + DataCardValue38.Height
+                            ZIndex: =3
+
+                        StarVisible36 As Label:
+                            Alignment: =Align.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =30
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            X: =0
+                            Y: =DataCardKey44.Y
+                            ZIndex: =4
+
+                    "'Net Price_DataCard1' As typedDataCard.pcfCoreCurrencyEditCard":
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="cr4e3_netprice"
+                        Default: =ThisItem.'Net Price'
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@'VOA Items'],DataSourceInfo.DisplayName,"cr4e3_netprice")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =70
+                        Required: =true
+                        Update: =Value(DataCardValue36.Text)
+                        Width: =271
+                        WidthFit: =true
+                        X: =0
+                        Y: =3
+                        ZIndex: =2
+
+                        DataCardKey42 As Label:
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =22
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: =Parent.DisplayName
+                            Tooltip: =Parent.DisplayName
+                            VerticalAlignment: =VerticalAlign.Bottom
+                            Width: =Parent.Width - 48
+                            Wrap: =true
+                            X: =24
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue36 As text:
+                            AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                            BorderColor: =RGBA(243, 242, 241, 1)
+                            BorderThickness: =0
+                            Color: =RGBA(37, 36, 35, 1)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(200, 198, 196, 1)
+                            DisabledFill: =RGBA(243, 242, 241, 1)
+                            DisplayMode: =Parent.DisplayMode
+                            Fill: =RGBA(243, 242, 241, 1)
+                            FocusedBorderColor: =RGBA(98, 100, 167, 1)
+                            FocusedBorderThickness: =2
+                            Font: =Font.'Segoe UI'
+                            Format: =TextFormat.Number
+                            Height: =32
+                            HoverBorderColor: =RGBA(243, 242, 241, 1)
+                            HoverColor: =RGBA(37, 36, 35, 1)
+                            HoverFill: =RGBA(243, 242, 241, 1)
+                            PaddingBottom: =4
+                            PaddingRight: =12
+                            PaddingTop: =0
+                            PressedBorderColor: =RGBA(98, 100, 167, 1)
+                            PressedColor: =RGBA(37, 36, 35, 1)
+                            PressedFill: =RGBA(243, 242, 241, 1)
+                            RadiusBottomLeft: =3
+                            RadiusBottomRight: =3
+                            RadiusTopLeft: =3
+                            RadiusTopRight: =3
+                            Size: =10.5
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 48
+                            X: =24
+                            Y: =DataCardKey42.Y + DataCardKey42.Height + 4
+                            ZIndex: =2
+
+                        ErrorMessage34 As Label:
+                            AutoHeight: =true
+                            Color: =Color.Red
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =30
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: =Parent.Error
+                            Tooltip: =Parent.Error
+                            Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =Parent.Width - 48
+                            Wrap: =true
+                            X: =24
+                            Y: =DataCardValue36.Y + DataCardValue36.Height
+                            ZIndex: =3
+
+                        StarVisible34 As Label:
+                            Alignment: =Align.Center
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =30
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            X: =0
+                            Y: =DataCardKey42.Y
+                            ZIndex: =4
+
+                    "'Item ID_DataCard2' As typedDataCard.pcfCoreTextualViewCard":
+                        BorderColor: =RGBA(243, 242, 241, 1)
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="cr4e3_name"
+                        Default: =ThisItem.'Item ID'
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@'VOA Items'],DataSourceInfo.DisplayName,"cr4e3_name")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =70
+                        Required: =false
+                        Width: =271
+                        WidthFit: =true
+                        X: =0
+                        Y: =5
+                        ZIndex: =2
+
+                        DataCardKey40 As Label:
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =9
+                            Height: =22
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Text: =Parent.DisplayName
+                            Tooltip: =Parent.DisplayName
+                            VerticalAlignment: =VerticalAlign.Bottom
+                            Width: =Parent.Width - 48
+                            Wrap: =true
+                            X: =24
+                            Y: =10
+                            ZIndex: =1
+
+                        "DataCardValue34 As 'Text box'":
+                            DisplayMode: =DisplayMode.View
+                            FontSize: =10.5
+                            Height: =32
+                            Mode: ="SingleLine"
+                            PCFTeamsTheme: =TeamsTheme.Default
+                            Tooltip: =Parent.DisplayName
+                            Value: =Parent.Default
+                            Width: =Parent.Width - 48
+                            X: =24
+                            Y: =DataCardKey40.Y + DataCardKey40.Height + 4
+                            ZIndex: =2
+
+                Container2 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0.1
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =35
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =35
+                    LayoutMinWidth: =124
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    ButtonNew As Button:
+                        Alignment: =Align.Center
+                        BorderColor: =RGBA(224, 224, 237, 1)
+                        BorderRadius: =0
+                        ButtonType: ='Button.ButtonType'.Primary
+                        DisabledBorderColor: =RGBA(224, 224, 237, 1)
+                        DisplayMode: =DisplayMode.Edit
+                        FillColor: =RGBA(161, 162, 202, 1)
+                        FontWeight: =FontWeight.Normal
+                        Height: =32
+                        HoverBorderColor: =RGBA(224, 224, 237, 1)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        OnSelect: |
+                            =ResetForm(FormVoaItm)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        PressedBorderColor: =RGBA(224, 224, 237, 1)
+                        Text: ="New"
+                        TextColor: =RGBA(0, 0, 0, 1)
+                        Width: =120
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    ButtonSaveVoaItmsFrm As Button:
+                        Alignment: =Align.Center
+                        BorderColor: =RGBA(224, 224, 237, 1)
+                        BorderRadius: =0
+                        ButtonType: ='Button.ButtonType'.Primary
+                        DisabledBorderColor: =RGBA(224, 224, 237, 1)
+                        DisplayMode: =DisplayMode.Edit
+                        FillColor: =RGBA(161, 162, 202, 1)
+                        FontWeight: =FontWeight.Normal
+                        Height: =32
+                        HoverBorderColor: =RGBA(224, 224, 237, 1)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        OnSelect: |-
+                            =If (
+                                EditForm_OtlnAgrmnt.Mode = FormMode.New,
+                                Collect(
+                                    colVoaItems,
+                                    FormVoaItm.Updates
+                                );
+                                ResetForm(FormVoaItm),
+                                SubmitForm(FormVoaItm)
+                            )
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        PressedBorderColor: =RGBA(224, 224, 237, 1)
+                        Text: ="Save"
+                        TextColor: =RGBA(0, 0, 0, 1)
+                        Width: =120
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                    ButtonDltVoaItm As Button:
+                        BorderColor: =RGBA(224, 224, 237, 1)
+                        BorderRadius: =0
+                        ButtonType: ='Button.ButtonType'.Primary
+                        DisabledBorderColor: =RGBA(224, 224, 237, 1)
+                        DisplayMode: =If(FormVoaItm.Mode = FormMode.New, DisplayMode.Disabled, DisplayMode.Edit)
+                        FillColor: =RGBA(161, 162, 202, 1)
+                        FontWeight: =FontWeight.Normal
+                        Height: =32
+                        HoverBorderColor: =RGBA(224, 224, 237, 1)
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        OnSelect: |-
+                            =Remove('VOA Items', Gallery_VoaItms.Selected);
+                            ResetForm(FormVoaItm);
+                            NewForm(FormVoaItm);
+                            
+                            //If (
+                                //EditForm_OtlnAgrmnt.Mode = FormMode.New,
+                                //!!! TO DO !!! Remove from collection, IF already added via Save button
+                                //Remove(
+                                   // colVoaItems,
+                                    //FormVoaItm.Updates
+                                //),
+                                //If voa item sub-form mode is NOT new, then remove the displayed 'VOA Item' record
+                               // If( Not(FormVoaItm.Mode.New),
+                                //Remove('VOA Items', Gallery_VoaItms.Selected));
+                                // For all cases reset the form including if the form is in New mode
+                                //ResetForm(FormVoaItm)
+                                
+                            //)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        PressedBorderColor: =RGBA(224, 224, 237, 1)
+                        Text: ="Delete"
+                        TextColor: =RGBA(0, 0, 0, 1)
+                        Width: =120
+                        X: =0
+                        Y: =0
+                        ZIndex: =3
+
+        DeleteConfirmOverlay1_3 As groupContainer:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height
+            Visible: =If(deleteMode, true, false)
+            Width: =Parent.Width
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =(Parent.Height - Self.Height) / 2
+            ZIndex: =6
+
+            TimerSetFocus1_3 As timer:
+                BorderColor: =RGBA(98, 100, 167, 1)
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(200, 198, 196, 1)
+                DisabledFill: =RGBA(243, 242, 241, 1)
+                Duration: =If(LeftContainer1_3.Width = 0, 2500, 200)
+                Fill: =RGBA(98, 100, 167, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =0
+                HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -10%)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(98, 100, 167, 1), -10%)
+                OnTimerEnd: =SetFocus(DeleteCancelBtn1_3)
+                PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                Size: =10.5
+                Start: =deleteMode
+                TabIndex: =-1
+                Text: =""
+                Visible: =false
+                Width: =0
+                ZIndex: =1
+
+            TimerShowDeleteText1_3 As timer:
+                BorderColor: =RGBA(98, 100, 167, 1)
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                DisabledColor: =RGBA(200, 198, 196, 1)
+                DisabledFill: =RGBA(243, 242, 241, 1)
+                Duration: =200
+                Fill: =RGBA(98, 100, 167, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =0
+                HoverBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -10%)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(98, 100, 167, 1), -10%)
+                OnTimerEnd: |-
+                    =UpdateContext({deletePromptString:"Are you sure you want to delete this record?"})
+                OnTimerStart: |-
+                    =UpdateContext({deletePromptString:""})
+                PressedBorderColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                Size: =10.5
+                Start: =deleteMode
+                TabIndex: =-1
+                Text: =""
+                Visible: =false
+                Width: =0
+                ZIndex: =2
+
+            DeleteConfirmBtn1_3 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =varStyle.borderStyle
+                Fill: =RGBA(98, 100, 167, 1)
+                FocusedBorderColor: =varStyle.focusBorderColor
+                FocusedBorderThickness: =varStyle.focusBorderThickness
+                Height: =32
+                OnSelect: |-
+                    =Remove('Vendor Agreements', selectedRecord); If(IsEmpty(Errors('Vendor Agreements', selectedRecord)), UpdateContext( { CurrentItem: First('Vendor Agreements'), itemSelected:false, editMode:false, newMode:false, deleteMode:false}));
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Text: ="Delete"
+                Width: =96
+                X: =(Parent.Width - (Self.Width * 2 + varStyle.iconPadding)) / 2 + DeleteCancelBtn1_3.Width + varStyle.iconPadding
+                Y: =DeleteText1_3.Y + DeleteText1_3.Height+varStyle.iconPadding
+                ZIndex: =3
+
+            DeleteText1_3 As label:
+                Align: =Align.Center
+                Height: =120
+                Live: =Live.Assertive
+                Text: =deletePromptString
+                Width: =Min(350, Parent.Width * 0.8) 
+                X: =(Parent.Width - Self.Width) / 2
+                Y: =(Parent.Height - (Self.Height + varStyle.iconPadding + DeleteConfirmBtn1_3.Height)) / 2
+                ZIndex: =4
+
+            DeleteCancelBtn1_3 As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =varStyle.borderStyle
+                Fill: =RGBA(98, 100, 167, 1)
+                FocusedBorderColor: =varStyle.focusBorderColor
+                FocusedBorderThickness: =varStyle.focusBorderThickness
+                Height: =32
+                OnSelect: |-
+                    =UpdateContext({deleteMode:false, deleteCancelled:true})
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Text: ="Cancel"
+                Width: =96
+                X: =(Parent.Width - (Self.Width * 2 + varStyle.iconPadding)) / 2
+                Y: =DeleteText1_3.Y + DeleteText1_3.Height+varStyle.iconPadding
+                ZIndex: =5
+

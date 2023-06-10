@@ -1,0 +1,103 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_attachments",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_attachment",
+    "MaxGetRowsCount": 700,
+    "Name": "File Attachments",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr4e3_attachment_AsyncOperations": "System Jobs",
+      "cr4e3_attachment_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_attachment_DuplicateBaseRecord": "Duplicate Records (cr4e3_attachment_DuplicateBaseRecord)",
+      "cr4e3_attachment_DuplicateMatchingRecord": "Duplicate Records (cr4e3_attachment_DuplicateMatchingRecord)",
+      "cr4e3_attachment_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_attachment_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_attachment_ProcessSession": "Process Sessions",
+      "cr4e3_attachment_SyncErrors": "Sync Errors",
+      "cr4e3_attachmentid": "Attachment",
+      "cr4e3_cr4e3_purchaseorderrequest_Attachment_cr4": "Purchase Order Requests",
+      "cr4e3_extractedtext": "Extracted Text",
+      "cr4e3_fileidentifier": "File Identifier",
+      "cr4e3_linktoitem": "Link_to_Item",
+      "cr4e3_name": "Name",
+      "cr4e3_tags": "Tags",
+      "cr4e3_thumbnailurl": "Thumbnail URL",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "File Attachments",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "File Attachments (Views)",
+    "Name": "_cr4e3_attachment_views",
+    "RelatedEntityName": "File Attachments",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2e9320d4-5e59-44b0-a056-ece2a81afbb7": "Attachment Lookup View",
+      "64b86685-d59a-457b-9402-1d1db015aa5a": "Attachment Advanced Find View",
+      "99bdbde0-5cfb-488d-b02e-e060b1781728": "Attachment Associated View",
+      "a971f296-4e68-4b85-8e9b-795c0ed3ed69": "Active Attachments",
+      "bf7c6e04-596a-44ad-a95c-9bdc4f59a03b": "Inactive Attachments"
+    }
+  },
+  {
+    "DisplayName": "Status (File Attachments)",
+    "Name": "cr4e3_attachment_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "File Attachments"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "File Attachments",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (File Attachments)",
+    "Name": "cr4e3_attachment_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "File Attachments"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "File Attachments",
+    "Type": "OptionSetInfo"
+  }
+]

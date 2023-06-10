@@ -1,0 +1,224 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_purchaseorderrequests",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_purchaseorderrequest",
+    "MaxGetRowsCount": 700,
+    "Name": "Purchase Order Requests",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cr4e3_approvaltrail": "approvalTrail",
+      "cr4e3_ApprovalWorkflow": "Approval Workflow",
+      "cr4e3_Attachment": "Attachment",
+      "cr4e3_budgetbalance": "Budget Balance",
+      "cr4e3_budgetbalance_base": "Budget Balance (Base)",
+      "cr4e3_budgeted": "Budgeted",
+      "cr4e3_classificationcode": "Classification Code",
+      "cr4e3_cr4e3_approval_POR_cr4e3_purchaseorderreq": "Approvals",
+      "cr4e3_cr4e3_orderrequestitem_PORID_cr4e3_purcha": "Order Request Items",
+      "cr4e3_CustomerBillingMilestone": "Customer Billing Milestone",
+      "cr4e3_customerpo": "Customer PO",
+      "cr4e3_customerpodate": "Customer PO Date",
+      "cr4e3_deliverydate": "Delivery Date",
+      "cr4e3_DocumentStatus": "Document Status",
+      "cr4e3_expensetype": "Expense Type",
+      "cr4e3_name": "POR Description",
+      "cr4e3_NCSB_Site_ID": "NCSB_Site_ID",
+      "cr4e3_OperativeSiteWBS": "Operative Site WBS",
+      "cr4e3_pordate": "POR Date",
+      "cr4e3_purchaseorderrequest_AsyncOperations": "System Jobs",
+      "cr4e3_purchaseorderrequest_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_purchaseorderrequest_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_purchaseorderrequest_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_purchaseorderrequest_ProcessSession": "Process Sessions",
+      "cr4e3_purchaseorderrequest_SyncErrors": "Sync Errors",
+      "cr4e3_purchaseorderrequestid": "Purchase Order Request",
+      "cr4e3_QCNo": "QC No",
+      "cr4e3_remarks": "Remarks",
+      "cr4e3_salesorder": "Sales Order",
+      "cr4e3_serviceorder": "Service Order",
+      "cr4e3_template": "Template",
+      "cr4e3_Vendor": "Vendor",
+      "cr4e3_VOAQuotation": "VOA / Quotation",
+      "cr4e3_WBSTemplate": "WBS Template",
+      "cr4e3_ZoneLevelWBS": "Zone Level WBS",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "exchangerate": "Exchange Rate",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "transactioncurrencyid": "Currency",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Purchase Order Requests",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Purchase Order Requests (Views)",
+    "Name": "_cr4e3_purchaseorderrequest_views",
+    "RelatedEntityName": "Purchase Order Requests",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "19140da6-44a1-4ff1-b790-5678da5127b9": "Purchase Order Request Advanced Find View",
+      "2e867b4d-bc97-4086-a3cb-3c0ca5937555": "Inactive Purchase Order Requests",
+      "4975b4b5-8ec5-4ca0-a158-2ef4ee5c1979": "Purchase Order Request Lookup View",
+      "a6f7b170-bcef-4624-8b15-ca4b896b6217": "Active Purchase Order Requests",
+      "de1456cc-98b8-ed11-b596-000d3a08389f": "Purchase Orders (non-template)",
+      "f5959f78-e16f-4b09-b3ab-61f4b8255228": "Purchase Order Request Associated View",
+      "fd2ca3d2-99b8-ed11-b596-000d3a08389f": "POR Templates"
+    }
+  },
+  {
+    "DisplayName": "Budgeted (Purchase Order Requests)",
+    "Name": "cr4e3_purchaseorderrequest_cr4e3_budgeted",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr4e3_budgeted",
+        "OptionSetReferenceEntityName": "Purchase Order Requests"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cr4e3_budgeted",
+    "RelatedEntityName": "Purchase Order Requests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Classification Code (Purchase Order Requests)",
+    "Name": "cr4e3_purchaseorderrequest_cr4e3_classificationcode",
+    "OptionSetInfoNameMapping": {
+      "644420000": "10300000 Telecommunication & Engineering Equipment",
+      "644420001": "62301230 COS-Repair & Maintenance",
+      "644420002": "63304075 COS-Electricity",
+      "644420003": "63304085 COS-Survey Fee",
+      "644420004": "63304086 COS-Local Council Fee",
+      "644420005": "63304087 COS-Rental Others",
+      "644420006": "63304088 COS-Project OBT",
+      "644420007": "63304392 COS-Project Maxis Clawback",
+      "644420008": "63304089 COS-Project Insurance",
+      "644420009": "63304390 COS-Rental of Sites",
+      "644420010": "63304393 COS-Project (DNB)",
+      "644420011": "69000450 Printing & Stationery",
+      "644420012": "69000630 Subscription - Newspaper,Periodical & M",
+      "644420013": "69000690 Upkeep of Office",
+      "644420014": "69000387 IT Maintenance Services",
+      "644420015": "69000660 Telephone & Fax",
+      "644420016": "69000670 Toll, Mileage & Parking",
+      "644420017": "10150000 Renovation",
+      "644420018": "10170000 Motor Vehicle",
+      "644420019": "10190000 Office Equipment",
+      "644420020": "10210000 Furniture and Fittings",
+      "644420021": "10220000 Computer",
+      "644420022": "68000270        General Expenses"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr4e3_classificationcode",
+        "OptionSetReferenceEntityName": "Purchase Order Requests"
+      }
+    },
+    "OptionSetTypeKey": "MultiSelectPicklistType",
+    "RelatedColumnInvariantName": "cr4e3_classificationcode",
+    "RelatedEntityName": "Purchase Order Requests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Expense Type (Purchase Order Requests)",
+    "Name": "cr4e3_purchaseorderrequest_cr4e3_expensetype",
+    "OptionSetInfoNameMapping": {
+      "644420000": "Capital Expenditure",
+      "644420001": "Operating Expenditure"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr4e3_expensetype",
+        "OptionSetReferenceEntityName": "Purchase Order Requests"
+      }
+    },
+    "OptionSetTypeKey": "MultiSelectPicklistType",
+    "RelatedColumnInvariantName": "cr4e3_expensetype",
+    "RelatedEntityName": "Purchase Order Requests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Template (Purchase Order Requests)",
+    "Name": "cr4e3_purchaseorderrequest_cr4e3_template",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr4e3_template",
+        "OptionSetReferenceEntityName": "Purchase Order Requests"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cr4e3_template",
+    "RelatedEntityName": "Purchase Order Requests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Purchase Order Requests)",
+    "Name": "cr4e3_purchaseorderrequest_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Purchase Order Requests"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Purchase Order Requests",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Purchase Order Requests)",
+    "Name": "cr4e3_purchaseorderrequest_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Purchase Order Requests"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Purchase Order Requests",
+    "Type": "OptionSetInfo"
+  }
+]

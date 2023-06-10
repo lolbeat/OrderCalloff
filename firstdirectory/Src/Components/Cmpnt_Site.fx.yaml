@@ -1,0 +1,43 @@
+Cmpnt_Site As CanvasComponent:
+    ContentLanguage: =
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =275
+    IDLRD: ="Text"
+    Width: =200
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    MainContainer As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container3 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0.6
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =40
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            Label6 As Label:
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Width: =MainContainer.Width
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+        Container4 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =75
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+

@@ -1,0 +1,128 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_workflowstatuses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_workflowstatus",
+    "MaxGetRowsCount": 700,
+    "Name": "Workflow Steps",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cr4e3_approvalorder": "Approval Order",
+      "cr4e3_Approver": "Approver",
+      "cr4e3_cr4e3_purchaseorderrequest_DocumentStatus": "Purchase Order Requests",
+      "cr4e3_step": "Step",
+      "cr4e3_Workflow": "Workflow",
+      "cr4e3_workflowapprovalgroup": "Workflow Approval Group",
+      "cr4e3_workflowstatus_AsyncOperations": "System Jobs",
+      "cr4e3_workflowstatus_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_workflowstatus_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_workflowstatus_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_workflowstatus_ProcessSession": "Process Sessions",
+      "cr4e3_workflowstatus_SyncErrors": "Sync Errors",
+      "cr4e3_workflowstatusid": "Workflow Status",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Workflow Steps",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Workflow Steps (Views)",
+    "Name": "_cr4e3_workflowstatus_views",
+    "RelatedEntityName": "Workflow Steps",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "39b7da04-e19c-4dab-b0d4-678b948703c3": "Active Workflow Statuses",
+      "753398eb-6e2e-4700-bff3-baf69401ae76": "Workflow Status Advanced Find View",
+      "81f83edb-2af2-47a8-91dd-f005dafea0eb": "Workflow Status Associated View",
+      "84d4e22a-6493-4524-9ef2-9f2c7ec78782": "Inactive Workflow Statuses",
+      "d22120ce-a655-4fef-b98e-16e6aa96d57a": "Workflow Status Lookup View"
+    }
+  },
+  {
+    "DisplayName": "ApprovalGroup",
+    "Name": "cr4e3_approvalgroup",
+    "OptionSetInfoNameMapping": {
+      "644420000": "Field Operations",
+      "644420001": "Regional Management (Central)",
+      "644420002": "PMO",
+      "644420003": "Finance1",
+      "644420004": "Finance2",
+      "644420005": "CEO",
+      "644420006": "Group",
+      "644420007": "Procurement",
+      "644420008": "Regional Management (Northern)"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr4e3_workflowapprovalgroup",
+        "OptionSetReferenceEntityName": "Workflow Steps"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "cr4e3_userapprovalgroup",
+        "OptionSetReferenceEntityName": "Users"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr4e3_workflowapprovalgroup",
+    "RelatedEntityName": "Workflow Steps",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Workflow Steps)",
+    "Name": "cr4e3_workflowstatus_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Workflow Steps"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Workflow Steps",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Workflow Steps)",
+    "Name": "cr4e3_workflowstatus_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Workflow Steps"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Workflow Steps",
+    "Type": "OptionSetInfo"
+  }
+]

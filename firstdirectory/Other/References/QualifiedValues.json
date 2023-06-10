@@ -1,0 +1,168 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_cr4e3_vendors_forms",
+      "Namespace": "Vendors (Forms)",
+      "Values": {
+        "Information": "9aca3c1c-15ca-439a-8870-ff21d8029906"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_vendoragreement_forms",
+      "Namespace": "Vendor Agreements (Forms)",
+      "Values": {
+        "Information": "e7524aee-e543-4257-9b6a-ff85ee768808"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_workflowstatus_forms",
+      "Namespace": "Workflow Steps (Forms)",
+      "Values": {
+        "Information": "586a041e-473b-49d6-87df-b3b8c1bffdb8"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_purchaseorderrequest_forms",
+      "Namespace": "Purchase Order Requests (Forms)",
+      "Values": {
+        "Information": "997bf128-8dd3-4549-a866-7ed2cda671d2"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_orderrequestitem_forms",
+      "Namespace": "Order Request Items (Forms)",
+      "Values": {
+        "Information": "f879123d-8a04-4484-8ec8-fed8dbe62c73"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_vendoroa_forms",
+      "Namespace": "VOA Items (Forms)",
+      "Values": {
+        "Information": "445f799e-f9ab-4e3d-ae69-e7f43f5f180f"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_qcitem_forms",
+      "Namespace": "QC Items (Forms)",
+      "Values": {
+        "Information": "c23ce0f6-1f18-4443-b84a-9db917235140"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_quantitycontract_forms",
+      "Namespace": "Quantity Contracts (Forms)",
+      "Values": {
+        "Information": "6f36c7cf-c6c3-4e59-a953-d269ef8d21fb"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_customer_forms",
+      "Namespace": "Customers (Forms)",
+      "Values": {
+        "Information": "ebfeb4bd-92f5-4425-afb3-d52736d4b9ef"
+      }
+    },
+    {
+      "Kind": "default.cds_bulkdeletefailure_forms",
+      "Namespace": "Bulk Delete Failures (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "Users (Forms)",
+      "Values": {
+        "Application User": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8",
+        "Information": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
+        "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "User form – Business": "c2413504-7eb2-4c59-a087-95d819866114",
+        "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
+      }
+    },
+    {
+      "Kind": "default.cds_transactioncurrency_forms",
+      "Namespace": "Currencies (Forms)",
+      "Values": {
+        "Information": "b56b6d35-1e69-436b-ba86-78127d36e8aa"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_sites_forms",
+      "Namespace": "Sitess (Forms)",
+      "Values": {
+        "Information": "f8eeaff0-bfd9-48df-b177-af615d2e164e"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_wbselement_forms",
+      "Namespace": "WBS Elements (Forms)",
+      "Values": {
+        "Information": "c857e534-ed32-4c6a-a8c7-d9b18ffce1f3"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_workflow_forms",
+      "Namespace": "Workflows (Forms)",
+      "Values": {
+        "Information": "c81dd439-8b9e-4ee7-b841-c85069f4b30e"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_invoiceplan_forms",
+      "Namespace": "Invoice Plans (Forms)",
+      "Values": {
+        "Information": "6fdfe85a-e335-4591-8c86-d45de8516e04"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_attachment_forms",
+      "Namespace": "File Attachments (Forms)",
+      "Values": {
+        "Information": "fe328e11-5f0b-4ecb-8a57-ce29247b979a"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_approval_forms",
+      "Namespace": "Approvals (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_organization_forms",
+      "Namespace": "Organizations (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_fileattachment_forms",
+      "Namespace": "FileAttachments (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_cr4e3_workflowstatus_forms",
+      "Namespace": "Workflow Statuses (Forms)",
+      "Values": {
+        "Information": "586a041e-473b-49d6-87df-b3b8c1bffdb8"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_materialmaster_forms",
+      "Namespace": "Material Master (Forms)",
+      "Values": {
+        "Information": "696af328-f967-4c9f-afab-ee3b5c8a6c14"
+      }
+    },
+    {
+      "Kind": "89b76b5f-7b94-ef57-9e20-dc100db5b299_cr4e3_attachment_forms",
+      "Namespace": "Attachments (Forms)",
+      "Values": {
+        "Information": "fe328e11-5f0b-4ecb-8a57-ce29247b979a"
+      }
+    },
+    {
+      "Kind": "default.cds_cr4e3_attachment_forms",
+      "Namespace": "Attachments_1 (Forms)",
+      "Values": {
+        "Information": "fe328e11-5f0b-4ecb-8a57-ce29247b979a"
+      }
+    }
+  ]
+}

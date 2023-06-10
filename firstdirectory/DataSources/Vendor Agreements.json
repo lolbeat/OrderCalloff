@@ -1,0 +1,146 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_vendoragreements",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_vendoragreement",
+    "MaxGetRowsCount": 700,
+    "Name": "Vendor Agreements",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr4e3_cr4e3_purchaseorderrequest_VOAQuotation_c": "Purchase Order Requests",
+      "cr4e3_cr4e3_vendoroa_VOA_cr4e3_vendoragreement": "VOA Items",
+      "cr4e3_name": "Reference",
+      "cr4e3_notes": "Notes",
+      "cr4e3_products": "Products",
+      "cr4e3_quotation": "Quotation",
+      "cr4e3_validityend": "Validity End",
+      "cr4e3_validitystart": "Validity Start",
+      "cr4e3_Vendor": "Vendor",
+      "cr4e3_vendoragreement_AsyncOperations": "System Jobs",
+      "cr4e3_vendoragreement_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_vendoragreement_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_vendoragreement_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_vendoragreement_ProcessSession": "Process Sessions",
+      "cr4e3_vendoragreement_SyncErrors": "Sync Errors",
+      "cr4e3_vendoragreementid": "Vendor Agreement",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Vendor Agreements",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Vendor Agreements (Views)",
+    "Name": "_cr4e3_vendoragreement_views",
+    "RelatedEntityName": "Vendor Agreements",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "27228605-8341-4f63-a091-c846923d8233": "Vendor Agreement Lookup View",
+      "51160de4-8445-4b81-963e-78915965ae7a": "Active Vendor Agreements",
+      "6e48ba8d-8acb-ed11-a7c7-000d3ac834c9": "Vendor Outline Agreement",
+      "7e92e965-9193-4b6f-8053-16362486c127": "Vendor Agreement Advanced Find View",
+      "cac65d48-90b3-4053-b3f2-910c83d3d0c0": "Vendor Agreement Associated View",
+      "d851a88a-a837-49f8-a2cb-4a58d616410f": "Inactive Vendor Agreements",
+      "e45e9244-8acb-ed11-a7c7-000d3ac834c9": "Quotation"
+    }
+  },
+  {
+    "DisplayName": "Product Category",
+    "Name": "cr4e3_productcategory",
+    "OptionSetInfoNameMapping": {
+      "644420000": "Engineering Services",
+      "644420001": "Materials",
+      "644420002": "Construction Services"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr4e3_products",
+        "OptionSetReferenceEntityName": "Vendor Agreements"
+      }
+    },
+    "OptionSetTypeKey": "MultiSelectPicklistType",
+    "RelatedColumnInvariantName": "cr4e3_products",
+    "RelatedEntityName": "Vendor Agreements",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Quotation (Vendor Agreements)",
+    "Name": "cr4e3_vendoragreement_cr4e3_quotation",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr4e3_quotation",
+        "OptionSetReferenceEntityName": "Vendor Agreements"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cr4e3_quotation",
+    "RelatedEntityName": "Vendor Agreements",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Vendor Agreements)",
+    "Name": "cr4e3_vendoragreement_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Vendor Agreements"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Vendor Agreements",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Vendor Agreements)",
+    "Name": "cr4e3_vendoragreement_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Vendor Agreements"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Vendor Agreements",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,452 @@
+"ScrnHome As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    LoadingSpinnerColor: =RGBA(98, 100, 167, 1)
+
+    ScreenContainer1 As groupContainer.verticalAutoLayoutContainer:
+        BorderColor: =RGBA(98, 100, 167, 1)
+        BorderStyle: =BorderStyle.None
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer1 As groupContainer.horizontalAutoLayoutContainer:
+            BorderColor: =RGBA(98, 100, 167, 1)
+            BorderThickness: =3
+            Fill: =RGBA(224, 224, 237, 1)
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Label2 As Label:
+                AlignInContainer: =AlignInContainer.Stretch
+                Alignment: =Align.Center
+                AutoHeight: =false
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                FontSize: =14
+                FontWeight: =FontWeight.Bold
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                PCFTeamsTheme: =TeamsTheme.Default
+                Text: ="Operations - Order Calloff"
+                Width: =320
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+        MainSectionContainer1 As groupContainer.verticalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            CntnrNvgtn As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0.3
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                ZIndex: =1
+
+                CntnrPor As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =60
+                    LayoutMinWidth: =250
+                    ZIndex: =1
+
+                    BtnPrchsOrdrRqst As Button:
+                        Alignment: =Align.Center
+                        ButtonType: ='Button.ButtonType'.Standard
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverFillColor: =RGBA(224, 224, 237, 1)
+                        OnSelect: |-
+                            =Set(currentView, 'Purchase Order Requests (Views)'.'Purchase Orders (non-template)');
+                            Navigate(ScrnPrchsOrdrRqst)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        PressedFillColor: =RGBA(68, 70, 116, 1)
+                        Text: ="Purchase Requests"
+                        TextColor: =RGBA(68, 70, 116, 1)
+                        Tooltip: ="View All Purchase Requisitions"
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    IconPor As icon.DocumentwithContent:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Color: =RGBA(49, 50, 83, 1)
+                        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                        DisabledColor: =RGBA(220, 220, 220, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =32
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Icon: =Icon.AddDocument
+                        OnSelect: |-
+                            =Set(currentView, 'Purchase Order Requests (Views)'.'Purchase Orders (non-template)');
+                            Navigate(ScrnPrchsOrdrRqst)
+                        PaddingBottom: =3
+                        PaddingLeft: =3
+                        PaddingRight: =3
+                        PaddingTop: =3
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =32
+                        X: =10
+                        Y: =(Parent.Height/2) - (IconPor.Height/2)
+                        ZIndex: =2
+
+                CntnrQtn As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =60
+                    LayoutMinWidth: =250
+                    ZIndex: =2
+
+                    BtnQtn As Button:
+                        ButtonType: ='Button.ButtonType'.Standard
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverFillColor: =RGBA(224, 224, 237, 1)
+                        OnSelect: |-
+                            =Set(VaView, 'Vendor Agreements (Views)'.Quotation);
+                            Navigate(ScrnVoa)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        PressedFillColor: =RGBA(68, 70, 116, 1)
+                        Text: ="Quotations"
+                        TextColor: =RGBA(68, 70, 116, 1)
+                        Tooltip: ="View All Purchase Requisitions"
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    IconQtn As icon.Notebook:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Color: =RGBA(49, 50, 83, 1)
+                        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                        DisabledColor: =RGBA(220, 220, 220, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =32
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Icon: =Icon.DockCheckProperties
+                        OnSelect: |-
+                            =Set(VaView, 'Vendor Agreements (Views)'.Quotation);
+                            Navigate(ScrnVoa)
+                        PaddingBottom: =3
+                        PaddingLeft: =3
+                        PaddingRight: =3
+                        PaddingTop: =3
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =32
+                        X: =10
+                        Y: =(Parent.Height/2) - (IconQtn.Height/2)
+                        ZIndex: =2
+
+                CntnrQc As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =60
+                    LayoutMinWidth: =250
+                    ZIndex: =3
+
+                    BtnQtyCntrcts As Button:
+                        ButtonType: ='Button.ButtonType'.Standard
+                        DisplayMode: =DisplayMode.Edit
+                        FillColor: =RGBA(0, 0, 0, 0)
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFillColor: =RGBA(224, 224, 237, 1)
+                        OnSelect: =Navigate(ScrnQtyCntrct)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        PressedFillColor: =RGBA(68, 70, 116, 1)
+                        Text: ="Quantity Contracts"
+                        TextColor: =RGBA(68, 70, 116, 1)
+                        Tooltip: ="View Quantity Contracts agreed with customer"
+                        Width: =Parent.Width
+                        X: =Parent.X
+                        Y: =0
+                        ZIndex: =1
+
+                    IconQc As icon.Notebook:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Color: =RGBA(49, 50, 83, 1)
+                        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                        DisabledColor: =RGBA(220, 220, 220, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =32
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Icon: =Icon.Notebook
+                        OnSelect: =Navigate(ScrnQtyCntrct)
+                        PaddingBottom: =3
+                        PaddingLeft: =3
+                        PaddingRight: =3
+                        PaddingTop: =3
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =32
+                        X: =10
+                        Y: =(Parent.Height/2) - (IconQc.Height/2)
+                        ZIndex: =2
+
+                CntnrVoa As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =60
+                    LayoutMinWidth: =250
+                    ZIndex: =4
+
+                    BtnPorApprvls_1 As Button:
+                        ButtonType: ='Button.ButtonType'.Standard
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverFillColor: =RGBA(224, 224, 237, 1)
+                        OnSelect: |-
+                            =Set(VaView, 'Vendor Agreements (Views)'.'Vendor Outline Agreement');
+                            Navigate(ScrnVoa)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        PressedFillColor: =RGBA(68, 70, 116, 1)
+                        Text: ="Vendor OA"
+                        TextColor: =RGBA(68, 70, 116, 1)
+                        Tooltip: ="View All Purchase Requisitions"
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    IconVoa As icon.Notebook:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Color: =RGBA(49, 50, 83, 1)
+                        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                        DisabledColor: =RGBA(220, 220, 220, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =32
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Icon: =Icon.Journal
+                        OnSelect: |-
+                            =Set(VaView, 'Vendor Agreements (Views)'.'Vendor Outline Agreement');
+                            Navigate(ScrnVoa)
+                        PaddingBottom: =3
+                        PaddingLeft: =3
+                        PaddingRight: =3
+                        PaddingTop: =3
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =32
+                        X: =10
+                        Y: =(Parent.Height/2) - (IconVoa.Height/2)
+                        ZIndex: =2
+
+                CntnrTmplts As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =60
+                    LayoutMinWidth: =250
+                    ZIndex: =5
+
+                    BtnTmplts As Button:
+                        Alignment: =Align.Center
+                        ButtonType: ='Button.ButtonType'.Standard
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverFillColor: =RGBA(224, 224, 237, 1)
+                        OnSelect: |-
+                            =Set(currentView, 'Purchase Order Requests (Views)'.'POR Templates');
+                            Navigate(ScrnPrchsOrdrRqst)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        PressedFillColor: =RGBA(68, 70, 116, 1)
+                        Text: ="Templates"
+                        TextColor: =RGBA(68, 70, 116, 1)
+                        Tooltip: ="View All Purchase Requisitions"
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    IconTmplt As icon.DocumentwithContent:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Color: =RGBA(49, 50, 83, 1)
+                        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                        DisabledColor: =RGBA(220, 220, 220, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =32
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Icon: =Icon.PhotosPictures
+                        OnSelect: |-
+                            =Set(currentView, 'Purchase Order Requests (Views)'.'POR Templates');
+                            Navigate(ScrnPrchsOrdrRqst)
+                        PaddingBottom: =3
+                        PaddingLeft: =3
+                        PaddingRight: =3
+                        PaddingTop: =3
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =32
+                        X: =10
+                        Y: =(Parent.Height/2) - (IconTmplt.Height/2)
+                        ZIndex: =2
+
+                CntnrWrkflws As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =60
+                    LayoutMinWidth: =250
+                    ZIndex: =6
+
+                    BtnApprvlWrkflws As Button:
+                        Alignment: =Align.Center
+                        ButtonType: ='Button.ButtonType'.Standard
+                        DisplayMode: =DisplayMode.Edit
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverFillColor: =RGBA(224, 224, 237, 1)
+                        OnSelect: =Navigate(ScrnWrkflws)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        PressedFillColor: =RGBA(68, 70, 116, 1)
+                        Text: ="Approval Workflows"
+                        TextColor: =RGBA(68, 70, 116, 1)
+                        Tooltip: ="View All Purchase Requisitions"
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    IconWrkflw As icon.DocumentwithContent:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Color: =RGBA(49, 50, 83, 1)
+                        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                        DisabledColor: =RGBA(220, 220, 220, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        Height: =32
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Icon: =Icon.LikeDislike
+                        OnSelect: =Navigate(ScrnWrkflws)
+                        PaddingBottom: =3
+                        PaddingLeft: =3
+                        PaddingRight: =3
+                        PaddingTop: =3
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =32
+                        X: =10
+                        Y: =(Parent.Height/2) - (IconWrkflw.Height/2)
+                        ZIndex: =2
+
+                CntnrRprt As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =60
+                    LayoutMinWidth: =250
+                    ZIndex: =7
+
+                    BtnReports As Button:
+                        Alignment: =Align.Center
+                        ButtonType: ='Button.ButtonType'.Standard
+                        DisplayMode: =DisplayMode.Disabled
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverFillColor: =RGBA(224, 224, 237, 1)
+                        OnSelect: =Navigate(ScrnPrchsOrdrRqst)
+                        PCFTeamsTheme: =TeamsTheme.Default
+                        PressedFillColor: =RGBA(68, 70, 116, 1)
+                        Text: ="Reports"
+                        TextColor: =RGBA(68, 70, 116, 1)
+                        Tooltip: ="View All Purchase Requisitions"
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    IconRprt As icon.DocumentwithContent:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Color: =RGBA(49, 50, 83, 1)
+                        DisabledBorderColor: =RGBA(243, 242, 241, 1)
+                        DisabledColor: =RGBA(220, 220, 220, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =DisplayMode.Disabled
+                        Height: =32
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Icon: =Icon.LightningBolt
+                        OnSelect: =Navigate(ScrnPrchsOrdrRqst)
+                        PaddingBottom: =3
+                        PaddingLeft: =3
+                        PaddingRight: =3
+                        PaddingTop: =3
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedColor: =ColorFade(RGBA(98, 100, 167, 1), -30%)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =32
+                        X: =10
+                        Y: =(Parent.Height/2) - (IconRprt.Height/2)
+                        ZIndex: =2
+
+            CntnrSmmryRprt As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: =ScrnPrchsOrdrRqst.Size > ScreenSize.Small
+                ZIndex: =2
+
+                PowerBI2 As powerbi:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    BorderColor: =RGBA(243, 242, 241, 1)
+                    DashboardId: ="25084225-f9ce-40c2-b0a0-e355768b6788"
+                    FillPortions: =1
+                    Height: =240
+                    TileUrl: |-
+                        ="https://app.powerbi.com/embed?dashboardId=25084225-f9ce-40c2-b0a0-e355768b6788&tileId=bdd4b228-f076-47ec-b502-6713e02c8759&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVNPVVRILUVBU1QtQVNJQS1CLVBSSU1BUlktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQiLCJlbWJlZEZlYXR1cmVzIjp7Im1vZGVybkVtYmVkIjpmYWxzZX19"
+                    Width: =320
+                    WorkspaceId: ="3bc46492-9c07-47b1-a1e3-2ecb1a488e93"
+                    ZIndex: =1
+
+        FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =4
+
+            Label1 As Label:
+                AlignInContainer: =AlignInContainer.End
+                Color: =RGBA(179, 179, 179, 1)
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =320
+                Text: ="Vers. 0.11.9 Beta (Back button) 05/06/23"
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =400
+                X: =0
+                Y: =0
+                ZIndex: =1
+

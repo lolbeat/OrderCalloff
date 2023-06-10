@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "3d9bc7ba-f38a-48a7-ac04-3a8035e0f089",
+    "Name": "PopulatePRFfromTemplate",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "c17aebcd-f449-ed11-bba2-0022485adde6"
+  }
+]

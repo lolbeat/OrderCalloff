@@ -1,0 +1,99 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_qcitems",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_qcitem",
+    "MaxGetRowsCount": 700,
+    "Name": "QC Items",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cr4e3_ContractNumber": "Contract Number",
+      "cr4e3_cr4e3_orderrequestitem_QCItemID_cr4e3_qci": "Order Request Items",
+      "cr4e3_customermaterialcode": "Customer Material Code",
+      "cr4e3_itemid": "Item ID",
+      "cr4e3_materialcode": "Material Code",
+      "cr4e3_materialdescription": "Material description",
+      "cr4e3_pos": "POS",
+      "cr4e3_qcitem_AsyncOperations": "System Jobs",
+      "cr4e3_qcitem_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_qcitem_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_qcitem_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_qcitem_ProcessSession": "Process Sessions",
+      "cr4e3_qcitem_SyncErrors": "Sync Errors",
+      "cr4e3_qcitemid": "QC Item",
+      "cr4e3_quantity": "Quantity",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "QC Items",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "QC Items (Views)",
+    "Name": "_cr4e3_qcitem_views",
+    "RelatedEntityName": "QC Items",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "4a426500-da94-44c5-97cb-311d4282fa67": "QC Item Lookup View",
+      "5784a9c1-f1fc-47dc-ac72-dd330979692f": "QC Item Advanced Find View",
+      "6eb01afd-8bd2-4d48-b6c0-9854ef7f1014": "Inactive QC Items",
+      "8273edd9-d8da-4e73-9bf6-d27c79ac925e": "Active QC Items",
+      "84cda9ea-d78f-483b-a76f-d5f76bb48f58": "QC Item Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (QC Items)",
+    "Name": "cr4e3_qcitem_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "QC Items"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "QC Items",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (QC Items)",
+    "Name": "cr4e3_qcitem_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "QC Items"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "QC Items",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,94 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr4e3_customers",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr4e3_customer",
+    "MaxGetRowsCount": 700,
+    "Name": "Customers",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "cr4e3_cr4e3_project_Customer_cr4e3_customer": "Projects",
+      "cr4e3_cr4e3_quantitycontract_Customer_cr4e3_cus": "Quantity Contracts",
+      "cr4e3_customer_AsyncOperations": "System Jobs",
+      "cr4e3_customer_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr4e3_customer_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr4e3_customer_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr4e3_customer_ProcessSession": "Process Sessions",
+      "cr4e3_customer_SyncErrors": "Sync Errors",
+      "cr4e3_customerid": "Customer",
+      "cr4e3_name": "Name",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "organizationid": "Organization Id",
+      "overriddencreatedon": "Record Created On",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Customers",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Customers (Views)",
+    "Name": "_cr4e3_customer_views",
+    "RelatedEntityName": "Customers",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "34eb65bd-1a48-41bc-8e30-a5e3c48a01c1": "Active Customers",
+      "ba0ef325-b80e-46ec-a573-a7d68d0cb733": "Customer Associated View",
+      "e225a615-12b9-4f66-b40a-ec32f9ca5250": "Customer Advanced Find View",
+      "f4d5a7d1-ce58-4b9b-be20-9b1f6bf2c7da": "Customer Lookup View",
+      "fded0f04-ec56-4c48-a2b8-6c2d58501888": "Inactive Customers"
+    }
+  },
+  {
+    "DisplayName": "Status (Customers)",
+    "Name": "cr4e3_customer_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Customers"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Customers",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Customers)",
+    "Name": "cr4e3_customer_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Customers"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Customers",
+    "Type": "OptionSetInfo"
+  }
+]

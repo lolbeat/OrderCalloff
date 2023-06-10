@@ -1,0 +1,36 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": true,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "Cmpnt_Site",
+    "TemplateGuid": "45a7a8b481b34e6ebf27e3972a8c13e3"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "ID/LRD",
+      "Hidden": false,
+      "Name": "IDLRD",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Site ID or LRD",
+      "Type": "{\"Version\":\"1.332\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638219566084551220",
+  "Name": "45a7a8b481b34e6ebf27e3972a8c13e3",
+  "OverridableProperties": {},
+  "Version": "638131608225502523"
+}
