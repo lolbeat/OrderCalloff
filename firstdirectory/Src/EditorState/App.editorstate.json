@@ -7,7 +7,14 @@
         "MinScreenWidth",
         "ConfirmExit",
         "SizeBreakpoints",
-        "BackEnabled",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "BackEnabled",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,

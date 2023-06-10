@@ -2928,7 +2928,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LblHdrNtPrc_4",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3144,7 +3144,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LblHdrPorItmPos_4",
-      "ParentIndex": 0,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3344,7 +3344,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LblHdrQcMtrlDscprn_4",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3536,7 +3536,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LblHdrQty_6",
-      "ParentIndex": 4,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3723,7 +3723,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LblHdrTtlPrc_8",
-      "ParentIndex": 5,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3917,7 +3917,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LblHdrTtlPrc_9",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4119,7 +4119,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LblHdrVoaPrchsItm_4",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4649,7 +4649,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "LblTtlsSpcr_4",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4890,7 +4890,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Pos_PrchsItm_1",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5031,7 +5031,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Pos_QcItm_1",
-      "ParentIndex": 7,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5179,7 +5179,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "PrchsItmDscptn_4",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5540,7 +5540,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateBrowseGalleryTitle.ID%",
       "Name": "QcMtrlDscptn_5",
-      "ParentIndex": 6,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5696,7 +5696,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Qty_5",
-      "ParentIndex": 2,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5818,7 +5818,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateBrowseGalleryRectangle1.ID%",
       "Name": "Rectangle1_5",
-      "ParentIndex": 8,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6320,7 +6320,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "TotalPrice_4",
-      "ParentIndex": 1,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6474,7 +6474,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "UntPrice_5",
-      "ParentIndex": 5,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

@@ -2428,10 +2428,13 @@
                         );
                         
                         //Inform end-user that approval flow has started
-                        Notify(
+                        If(varResult.result = "failed", Notify(
+                            "Approval flow failed...please contact your app administrator",
+                            NotificationType.Error,
+                            3000), Notify(
                             "Approval flow was initiated successfully",
                             NotificationType.Success,
-                            3000
+                            3000) 
                         );
                     PCFTeamsTheme: =TeamsTheme.Default
                     Text: ="Init. Approval"
