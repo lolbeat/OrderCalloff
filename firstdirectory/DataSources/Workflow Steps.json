@@ -78,6 +78,10 @@
       "OptionSetReferenceItem1": {
         "OptionSetReferenceColumnName": "cr4e3_userapprovalgroup",
         "OptionSetReferenceEntityName": "Users"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "cr960_userapprovalgroup",
+        "OptionSetReferenceEntityName": "Users"
       }
     },
     "OptionSetTypeKey": "PicklistType",

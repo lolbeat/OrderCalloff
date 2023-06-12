@@ -2344,7 +2344,7 @@
                         Set(CurrentItem, EditForm_PORequest.LastSubmit);
                         
                         //edit: next 2 lines added 26/04
-                        IfError(Patch(CurrentItem, {'Document Status': LookUp('Workflow Steps', Workflow.Name = CmbBxApprvlWrkflw.Selected.Name And 'Approval Order' = 1)}),  Notify( $"OOPS: { FirstError.Message }", NotificationType.Warning));
+                        //IfError(Patch(CurrentItem, {'Document Status': LookUp('Workflow Steps', Workflow.Name = CmbBxApprvlWrkflw.Selected.Name And 'Approval Order' = 1)}),  Notify( $"OOPS: { FirstError.Message }", NotificationType.Warning));
                         
                         Refresh('Purchase Order Requests');
                         
@@ -2406,11 +2406,11 @@
                                     Users,
                                     User = myGuid//GUID column in collection from previous step
                                 ).'Primary Email',
-                                "cr4e3_userapprovalgroup",
+                                "cr960_userapprovalgroup", // changed from cr4e3_userapprovalgroup for User table in development environment
                                 LookUp(
                                     Users,
                                     User = myGuid//GUID column in collection from previous step
-                                ).'User Approval Group'
+                                ).'User Approval Group (cr960_userapprovalgroup)'
                             )
                         );
                         //Trigger the power-flow to run the approvals for this collection of approvers
