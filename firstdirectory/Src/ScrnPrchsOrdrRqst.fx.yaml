@@ -2406,7 +2406,7 @@
                                     Users,
                                     User = myGuid//GUID column in collection from previous step
                                 ).'Primary Email',
-                                "cr960_userapprovalgroup", // changed from cr4e3_userapprovalgroup for User table in development environment
+                                "cr4e3_userapprovalgroup", // left as cr4e3_userapprovalgroup for compatability with trigger in production environment
                                 LookUp(
                                     Users,
                                     User = myGuid//GUID column in collection from previous step
