@@ -443,7 +443,7 @@
                 Height: =32
                 LayoutMinHeight: =32
                 LayoutMinWidth: =320
-                Text: ="Vers. Dev_0.11.11 Beta (Handling for JSON failure) 10/06/23"
+                Text: ="Vers. Dev_0.11.12 Beta (Init trigger changes for Custom User table ) 12/06/23"
                 VerticalAlignment: =VerticalAlign.Bottom
                 Width: =400
                 X: =0

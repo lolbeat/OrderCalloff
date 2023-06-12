@@ -478,7 +478,7 @@
                         LayoutMinWidth: =420
                         LoadingSpinner: =LoadingSpinner.Data
                         TemplatePadding: =2
-                        TemplateSize: =40
+                        TemplateSize: =35
                         Width: =
                         ZIndex: =1
 
@@ -487,7 +487,7 @@
                             DisabledFill: =RGBA(0,0,0,0)
                             Fill: =RGBA(0,0,0,0)
                             FocusedBorderColor: =RGBA(98, 100, 167, 1)
-                            Height: =36
+                            Height: =35
                             HoverFill: =RGBA(0,0,0,0)
                             OnSelect: =Select(Parent)
                             PressedFill: =RGBA(0,0,0,0)
