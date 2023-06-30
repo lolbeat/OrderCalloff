@@ -2410,7 +2410,7 @@
                                 LookUp(
                                     Users,
                                     User = myGuid//GUID column in collection from previous step
-                                ).'User Approval Group (cr960_userapprovalgroup)'
+                                ).'User Approval Group (cr960_userapprovalgroup)' // NOTE!!! ' (cr960_xxx ) added for development environment instance !!!
                             )
                         );
                         //Trigger the power-flow to run the approvals for this collection of approvers
